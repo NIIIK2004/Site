@@ -60,6 +60,7 @@ export default {
 </script>
 
 <style>
+@import "../public/css/reset.css";
 .loading-screen {
   position: fixed;
   top: 0;
