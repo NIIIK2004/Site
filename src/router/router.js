@@ -10,7 +10,7 @@ const routes = [
     {
         path: '/courses',
         component: CoursesPage,
-    }
+    },
 ]
 
 const router = createRouter( {
