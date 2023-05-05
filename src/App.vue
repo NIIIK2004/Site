@@ -61,42 +61,38 @@ export default {
 
 <style>
 @import "../public/css/reset.css";
-@import "../public/css/fonts.css";
 @import "../public/css/root.css";
+@import "../public/css/fonts.css";
+@import "../public/css/global.css";
 
-body {
-    font-family: "Jost", sans-serif;
-}
-
-@import "../public/css/reset.css";
 
 .loading-screen {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #CAFD5E;
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  padding: 106px;
-  box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #CAFD5E;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 106px;
+    box-sizing: border-box;
 }
 
 .loading-progress {
-  font-size: 100px;
-  font-weight: bold;
+    font-size: 100px;
+    font-weight: bold;
 }
 
 .slide-fade-enter-active,
 .slide-fade-leave-active {
-  transition: all 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .slide-fade-enter,
 .slide-fade-leave-to {
-  transform: translateX(10px);
-  opacity: 0;
+    transform: translateX(10px);
+    opacity: 0;
 }
 </style>
