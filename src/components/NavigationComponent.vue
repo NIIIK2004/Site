@@ -5,13 +5,11 @@
       <a class="logo">
         <img :src="logo" alt="Logo">
       </a>
-
       <nav class="nav">
         <ul v-for="link in links" :key ="link.id">
           <li><a href="">{{link.name}}</a></li>
         </ul>
       </nav>
-
       <button class="navigation--startBtn">Записаться на урок</button>
 
     </div>
