@@ -1,6 +1,6 @@
 <template>
   <div class="courses">
-    <h1>Привет, это курсы</h1>
+    <h1>Уроки английского в онлайн-школе Astyx</h1>
   </div>
 </template>
 
