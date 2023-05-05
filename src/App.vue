@@ -61,6 +61,7 @@ export default {
 
 <style>
 @import "../public/css/fonts.css";
+@import "../public/css/root.css";
 
 body {
     font-family: "Jost", sans-serif;

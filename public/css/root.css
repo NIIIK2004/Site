@@ -1,0 +1,18 @@
+:root {
+    --black300: #585858;
+    --black900: #111111;
+    --black800: #1B1B1B;
+    --black400: #2D2924;
+
+    --grey100: #C2C2C2;
+    --grey200: #BEBEBE;
+
+    --white100: #F1F1F1;
+    --white200: #F6F6F6;
+
+    --lime300: #CAFD5E;
+    --lime200: #B4FE1A;
+
+    --viollet: #DBDEFF;
+    --viollet700: #B275FF;
+}
