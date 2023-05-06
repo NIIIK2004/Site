@@ -1,31 +1,31 @@
 <template>
     <footer>
         <div class="container">
-            <img src="../../public/images/logoFooter.png" alt="tutLOGO">
+            <img src="../../public/images/logoFoote.svg" alt="tutLOGO">
             <div class="footer__links">
                 <ul class="footer__links-lists">
                     <p>Все курсы</p>
-                    <li>Популярные курсы</li>
-                    <li>Бесплатные курсы</li>
-                    <li>Платные курсы</li>
+                    <li><a href="#">Популярные</a> курсы</li>
+                    <li><a href="#">Бесплатные</a> курсы</li>
+                    <li><a href="#">Платные</a> курсы</li>
                 </ul>
                 <ul class="footer__links-lists">
                     <p>Английский по уровню</p>
-                    <li>Начинающий</li>
-                    <li>Учеба</li>
-                    <li>Помощь</li>
+                    <li><a href="#">Начинающий</a></li>
+                    <li><a href="#">Учеба</a></li>
+                    <li><a href="#">Помощь</a></li>
                 </ul>
                 <ul class="footer__links-lists">
                     <p>Английский по целям</p>
-                    <li>Средний</li>
-                    <li>Работа</li>
-                    <li>Бесплатно</li>
+                    <li><a href="#">Средний</a></li>
+                    <li><a href="#">Работа</a></li>
+                    <li><a href="#">Бесплатно</a></li>
                 </ul>
                 <ul class="footer__links-lists">
                     <p>Дополнительно</p>
-                    <li>Высокий</li>
-                    <li>Путешествия</li>
-                    <li>Статьи</li>
+                    <li><a href="#">Высокий</a></li>
+                    <li><a href="#">Путешествия</a></li>
+                    <li><a href="#">Статьи</a></li>
                 </ul>
             </div>
         </div>
@@ -73,6 +73,14 @@ footer {
     font-size: 20px;
     line-height: 24px;
     color: #BEBEBE;
+}
+@media (max-width: 558px) {
+    gap: 10px;
+}
 
+@media (max-width: 390px) {
+    .footer__links {
+        gap: 0;
+    }
 }
 </style>

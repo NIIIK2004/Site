@@ -70,16 +70,18 @@ export default {
     line-height: 29px;
     color: #2D2924;
 }
-.knowledge__block{
+
+.knowledge__block {
     background: #FFFFFF;
 }
-.knowledge__block-green{
+
+.knowledge__block-green {
     background: #B4FE1A;
 }
+
 .knowledge__blocks {
     margin-top: 50px;
     display: flex;
-    flex-wrap: wrap;
     gap: 20px;
     align-items: flex-start;
 }
@@ -101,5 +103,44 @@ export default {
 }
 
 .knowledge__block-text {
+}
+
+@media (max-width: 1000px) {
+    .knowledge__block-description[data-v-039723a4], .knowledge__block-green[data-v-039723a4], .knowledge__block[data-v-039723a4] {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .knowledge__block-description[data-v-039723a4], .knowledge__block-green[data-v-039723a4], .knowledge__block[data-v-039723a4] {
+        font-size: 20px;
+    }
+
+    .knowledge__blocks[data-v-039723a4] {
+        display: block;
+    }
+
+    .knowledge__block-green[data-v-039723a4], .knowledge__block[data-v-039723a4] {
+        margin-bottom: 10px;
+        padding: 33px 29px;
+        max-width: unset;
+        width: 100%;
+    }
+
+    .knowledge__block-description[data-v-039723a4] {
+        max-width: unset;
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .knowledge__blocks[data-v-039723a4] {
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 390px) {
+    .knowledge__block-green[data-v-039723a4], .knowledge__block[data-v-039723a4] {
+        font-weight: 500;
+    }
 }
 </style>
