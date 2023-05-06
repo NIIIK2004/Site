@@ -6,6 +6,13 @@ body {
     color: var(--black400);
 }
 
+.container {
+    max-width: 1150px;
+    width: 100%;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
 .loading-screen {
     position: fixed;
     top: 0;
@@ -25,16 +32,47 @@ body {
     font-weight: bold;
 }
 
-.page-title, .section-title {
-    font-weight: 500;
-}
-
 .page-title {
     font-size: 64px;
     line-height: 1.2;
+    font-weight: 700;
 }
 
 .section-title {
+    font-weight: 500;
     font-size: 40px;
     line-height: 1.3;
+}
+
+.btn {
+    display: inline-block;
+    line-height: 1;
+    padding: 13px 30px;
+    font-family: "Jost", sans-serif;
+    background-color: var(--lime200);
+    border: 2px solid transparent;
+    transition: color .3s, background .3s, border .3s;
+    border-radius: 35px;
+    color: var(--black400);
+}
+
+.btn:hover {
+    background-color: transparent;
+    border-color: var(--lime200);
+}
+
+.btn:focus {
+    opacity: .7;
+}
+
+.image-cover {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+@media (max-width: 1200px) {
+    .page-title {
+        font-size: 54px;
+    }
 }

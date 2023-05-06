@@ -1,12 +1,12 @@
 <template>
-  <div class="courses">
-    <h1>Уроки английского в онлайн-школе Astyx</h1>
-  </div>
+    <div class="courses">
+        <h1>Уроки английского в онлайн-школе Astyx</h1>
+    </div>
 </template>
 
 <script>
 export default {
-  name: "CoursesPage"
+    name: "CoursesPage"
 }
 </script>
 
