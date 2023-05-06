@@ -1,98 +1,80 @@
 <template>
-  <div class="navigation">
-    <div class="navigation--inner">
+    <div class="navigation">
+        <div class="navigation--inner">
 
-      <a class="logo">
-        <img :src="logo" alt="Logo">
-      </a>
-      <nav class="nav">
-        <ul v-for="link in links" :key ="link.id">
-          <li><a href="">{{link.name}}</a></li>
-        </ul>
-      </nav>
-      <button class="navigation--startBtn">Записаться на урок</button>
-
+            <a class="logo">
+                <img :src="logo" alt="Logo" width="32" height="32">
+            </a>
+            <nav class="nav">
+                <ul v-for="link in links" :key="link.id">
+                    <li><a href="">{{ link.name }}</a></li>
+                </ul>
+            </nav>
+            <button class="navigation__btn btn">Записаться на урок</button>
+        </div>
     </div>
-  </div>
 </template>
 
 <script>
 export default {
-  name: "NavigationComponent",
-  data() {
-    return {
-      links : [
-        {
-          id: 1,
-          name: "Онлайн-тесты",
-          path: ""
-        },
-        {
-          id: 2,
-          name: "Курсы",
-          path: ""
-        },
-        {
-          id: 3,
-          name: "Помощь",
-          path: ""
-        },
-        {
-          id: 4,
-          name: "Войти",
-          path: ""
+    name: "NavigationComponent",
+    data() {
+        return {
+            links: [
+                {
+                    id: 1,
+                    name: "Онлайн-тесты",
+                    path: ""
+                },
+                {
+                    id: 2,
+                    name: "Курсы",
+                    path: ""
+                },
+                {
+                    id: 3,
+                    name: "Помощь",
+                    path: ""
+                },
+                {
+                    id: 4,
+                    name: "Войти",
+                    path: ""
+                }
+            ],
+            logo: '../images/logo.png'
         }
-      ],
-      logo: ''
     }
-  }
 }
 </script>
 
 <style scoped>
-    .navigation {
-      position: fixed;
-      bottom: 20px;
-      left: 0;
-      right: 0;
+.navigation {
+    max-width: 740px;
+    position: fixed;
+    z-index: 300;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background: rgba(248, 251, 255, 0.33);
+    backdrop-filter: blur(25px);
+    border-radius: 50px;
+    padding: 15px 19px;
+}
 
-      margin: 0 auto;
+.navigation--inner {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
 
-      background: rgba(248, 251, 255, 0.33);
-      backdrop-filter: blur(25px);
-      border-radius: 50px;
+.nav {
+    display: flex;
+    gap: 24px;
+}
 
-      padding: 15px 19px;
-    }
-    .navigation--inner {
-      display: flex;
-      flex-direction: row;
-      gap: 24px;
-      justify-content: center;
-      align-items: center;
-    }
-    .nav {
-      display: flex;
-      flex-direction: row;
-      gap: 24px;
-    }
-    .nav ul{
-      padding: 0;
-    }
-    .nav ul li{
-      list-style: none;
-    }
-    .nav ul li a{
-      text-decoration: none;
-      font-size: 18px;
-      color: #2D2924
-    }
-    .navigation--startBtn {
-      background-color: #B4FE1A;
-      border-width: 0;
-      border-radius: 35px;
-      padding: 10px 27px;
-      font-size: 18px;
-      color: #2D2924
-    }
+.navigation__btn:hover {
+    color: var(--white100);
+}
 </style>
