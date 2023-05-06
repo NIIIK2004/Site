@@ -13,7 +13,9 @@
             <div class="examination__blocks">
                 <ExaminationtextComponent/>
             </div>
-            <button class="examination__btn btn">Начать тест</button>
+            <button class="examination__btn btn">
+                <router-link to="/alltests">Начать тест</router-link>
+            </button>
         </section>
         <section class="knowledge indent">
             <h2 class="knowledge__title section-title">Как тест проверяет ваши знания</h2>

@@ -2,6 +2,7 @@ import MainPage from "@/pages/MainPage.vue";
 import CoursesPage from "@/pages/СoursesPage.vue"
 import {createRouter, createWebHistory} from "vue-router";
 import SingleTest from "@/pages/SingleTest.vue";
+import AllTests from "@/pages/AllTests.vue";
 
 const routes = [
     {
@@ -15,6 +16,10 @@ const routes = [
     {
         path: '/singletest',
         component: SingleTest,
+    },
+    {
+        path: '/alltests',
+        component: AllTests,
     },
 ]
 
