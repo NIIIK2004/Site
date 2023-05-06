@@ -23,6 +23,7 @@
     height: 100vh;
     background-image: url("../../public/images/MainPage/start.jpg");
     position: relative;
+    margin-bottom: 120px;
 }
 
 .start__inner {
@@ -72,6 +73,10 @@
 }
 
 @media (max-width: 992px) {
+    .start {
+        margin-bottom: 80px;
+    }
+
     .start__text {
         font-size: 20px;
     }
@@ -88,6 +93,10 @@
 }
 
 @media (max-width: 600px) {
+    .start {
+        margin-bottom: 60px;
+    }
+
     .start__text {
         font-size: 16px;
     }
