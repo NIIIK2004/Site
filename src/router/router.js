@@ -1,6 +1,7 @@
 import MainPage from "@/pages/MainPage.vue";
 import CoursesPage from "@/pages/СoursesPage.vue"
 import {createRouter, createWebHistory} from "vue-router";
+import SingleTest from "@/pages/SingleTest.vue";
 
 const routes = [
     {
@@ -11,9 +12,13 @@ const routes = [
         path: '/courses',
         component: CoursesPage,
     },
+    {
+        path: '/singletest',
+        component: SingleTest,
+    },
 ]
 
-const router = createRouter( {
+const router = createRouter({
     routes,
     history: createWebHistory(process.env.BASE_URL)
 })
