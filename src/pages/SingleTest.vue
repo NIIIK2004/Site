@@ -17,15 +17,19 @@
             <KnowledgeBlocks/>
         </section>
 
+        <section class="contacts">
+            <ContactsFormComponent/>
+        </section>
+
     </div>
 </template>
 
 <script>
 import ExaminationtextComponent from "@/components/ExaminationtextComponent.vue";
 import KnowledgeBlocks from "@/components/KnowledgeBlocks.vue";
-
+import ContactsFormComponent from "@/components/ContactsFormComponent.vue";
 export default {
-    components: {ExaminationtextComponent, KnowledgeBlocks},
+    components: {ExaminationtextComponent, KnowledgeBlocks, ContactsFormComponent},
 }
 </script>
 
@@ -41,6 +45,11 @@ body {
     margin-bottom: 50px;
 }
 
+.contacts{
+    background: #EFFFCE;
+    border-radius: 25px;
+    padding: 60px 45px;
+}
 </style>
 
 
