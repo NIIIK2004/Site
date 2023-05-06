@@ -3,9 +3,9 @@
 </script>
 
 <template>
-    <div class="section-title">
+    <section class="section-title">
         <h1 class="page-title">Определите свой уровень английского, пройдя простой тест </h1>
-    </div>
+    </section>
 </template>
 
 <style scoped>
