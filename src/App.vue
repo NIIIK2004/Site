@@ -62,7 +62,6 @@ export default {
 <style>
 @import "../public/css/reset.css";
 @import "../public/css/fonts.css";
-@import "../public/css/root.css";
 @import "../public/css/global.css";
 
 .slide-fade-enter-active,

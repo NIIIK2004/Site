@@ -29,7 +29,7 @@
     padding-top: 190px;
     position: relative;
     z-index: 50;
-    color: var(--white100);
+    color: #fff;
     max-width: 730px;
     width: 100%;
 }
@@ -56,7 +56,7 @@
 }
 
 .start__btn:hover {
-    color: var(--white100);
+    color: #fff;
 }
 
 @media (max-width: 1200px) {
@@ -82,6 +82,14 @@
         padding-top: 100px;
     }
 
+    .start__text {
+        font-size: 18px;
+    }
+}
 
+@media (max-width: 600px) {
+    .start__text {
+        font-size: 16px;
+    }
 }
 </style>
