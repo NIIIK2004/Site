@@ -8,7 +8,9 @@
                 <p class="start__text">
                     Поможем быстро выучить английский язык, и научим грамотно использовать его в жизни
                 </p>
-                <a class="start__btn btn" href="#">Узнать уровень английского</a>
+                <router-link to="/courses" class="start__btn btn">
+                    <a>Узнать уровень английского</a>
+                </router-link>
             </div>
         </div>
     </section>

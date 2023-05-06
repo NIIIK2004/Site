@@ -1,16 +1,19 @@
 <template>
     <NavigationComponent/>
-  <!--     <router-link to="/courses" @click.prevent="animateTransition">Курсы</router-link>-->
     <SectionStart/>
     <InterestingTests/>
+    <PopularCourses/>
+    <ReviewsComponent/>
 </template>
 <script>
 import NavigationComponent from "@/components/NavigationComponent.vue";
 import SectionStart from "@/components/SectionStart.vue";
 import InterestingTests from "@/components/InterestingTests.vue";
+import PopularCourses from "@/components/PopularCourses/PopularCourses.vue";
+import ReviewsComponent from "@/components/Reviews/ReviewsComponent.vue";
 
 export default {
-    components: {InterestingTests, SectionStart, NavigationComponent},
+    components: {ReviewsComponent, PopularCourses, InterestingTests, SectionStart, NavigationComponent},
     NavigationComponent,
     name: "MainPage",
     methods: {

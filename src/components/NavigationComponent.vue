@@ -1,7 +1,6 @@
 <template>
     <div class="navigation">
         <div class="navigation--inner">
-
             <a class="logo">
                 <img :src="logo" alt="Logo" width="32" height="32">
             </a>
@@ -72,9 +71,5 @@ export default {
 .nav {
     display: flex;
     gap: 24px;
-}
-
-.navigation__btn:hover {
-    color: #fff;
 }
 </style>
