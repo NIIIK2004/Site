@@ -23,6 +23,7 @@
     height: 100vh;
     background-image: url("../../public/images/MainPage/start.jpg");
     position: relative;
+    margin-bottom: 120px;
 }
 
 .start__inner {
@@ -55,8 +56,16 @@
     font-weight: 400;
 }
 
+.start__btn {
+    transition: border .3s, background-color .3s;
+    border: 2px solid transparent;
+    background-color: #B4FE1A;
+}
+
 .start__btn:hover {
     color: #fff;
+    background-color: transparent;
+    border-color: #B4FE1A;
 }
 
 @media (max-width: 1200px) {
@@ -72,6 +81,10 @@
 }
 
 @media (max-width: 992px) {
+    .start {
+        margin-bottom: 80px;
+    }
+
     .start__text {
         font-size: 20px;
     }
@@ -88,6 +101,10 @@
 }
 
 @media (max-width: 600px) {
+    .start {
+        margin-bottom: 60px;
+    }
+
     .start__text {
         font-size: 16px;
     }
