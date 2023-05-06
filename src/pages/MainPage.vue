@@ -74,8 +74,8 @@ export default {
 
 <style scoped>
 router-link {
-    display: inline-block;
     color: white;
+    display: inline-block;
     background-color: #3498db;
     padding: 10px;
     border-radius: 5px;
