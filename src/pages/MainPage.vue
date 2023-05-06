@@ -1,5 +1,6 @@
 <template>
     <NavigationComponent/>
+  <!--    <router-link to="/courses" @click.prevent="animateTransition">Курсы</router-link>-->
     <SectionStart/>
     <InterestingTests/>
     <PopularCourses/>

@@ -38,6 +38,13 @@ body {
     font-weight: 700;
 }
 
+.page-description {
+    color: #2D2924;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+}
+
 .section-title {
     font-weight: 600;
     font-size: 40px;
@@ -76,6 +83,8 @@ body {
 }
 
 @media (max-width: 1200px) {
+    .examination__title,
+    .knowledge__title,
     .page-title {
         font-size: 54px;
     }
@@ -88,13 +97,15 @@ body {
     .indent {
         margin-bottom: 150px;
     }
+
 }
 
 @media (max-width: 1000px) {
     .page-title {
         font-size: 44px;
     }
-
+    .examination__title,
+    .knowledge__title,
     .section-title {
         font-size: 30px;
         margin-bottom: 30px;
@@ -106,6 +117,8 @@ body {
 }
 
 @media (max-width: 768px) {
+    .examination__title,
+    .knowledge__title,
     .page-title {
         font-size: 36px;
     }
@@ -124,10 +137,14 @@ body {
 }
 
 @media (max-width: 600px) {
+    .examination__title,
+    .knowledge__title,
     .page-title {
         font-size: 30px;
     }
-
+    .page-description {
+        font-size: 18px;
+    }
     .section-title {
         font-size: 24px;
     }
@@ -138,10 +155,12 @@ body {
 }
 
 @media (max-width: 468px) {
+
     .page-title {
         font-size: 28px;
     }
-
+    .examination__title,
+    .knowledge__title,
     .section-title {
         font-size: 22px;
     }
