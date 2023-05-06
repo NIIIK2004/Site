@@ -50,15 +50,13 @@ body {
     padding: 13px 30px;
     font-family: "Jost", sans-serif;
     background-color: #B4FE1A;
-    border: 2px solid transparent;
-    transition: color .3s, background .3s, border .3s;
+    transition: color .3s, background .3s;
     border-radius: 35px;
     color: #2D2924;
 }
 
 .btn:hover {
-    background-color: transparent;
-    border-color: #B4FE1A;
+    background-color: #2D2924;
 }
 
 .btn:focus {

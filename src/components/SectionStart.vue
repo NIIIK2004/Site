@@ -56,8 +56,16 @@
     font-weight: 400;
 }
 
+.start__btn {
+    transition: border .3s, background-color .3s;
+    border: 2px solid transparent;
+    background-color: #B4FE1A;
+}
+
 .start__btn:hover {
     color: #fff;
+    background-color: transparent;
+    border-color: #B4FE1A;
 }
 
 @media (max-width: 1200px) {
