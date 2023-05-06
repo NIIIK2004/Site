@@ -76,3 +76,15 @@ body {
         font-size: 54px;
     }
 }
+
+@media (max-width: 1000px) {
+    .page-title {
+        font-size: 44px;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-title {
+        font-size: 36px;
+    }
+}
