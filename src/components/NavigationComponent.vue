@@ -75,6 +75,6 @@ export default {
 }
 
 .navigation__btn:hover {
-    color: var(--white100);
+    color: #fff;
 }
 </style>
