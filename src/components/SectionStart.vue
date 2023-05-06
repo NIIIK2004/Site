@@ -70,4 +70,18 @@
         margin-bottom: 40px;
     }
 }
+
+@media (max-width: 992px) {
+    .start__text {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .start__inner {
+        padding-top: 100px;
+    }
+
+
+}
 </style>
