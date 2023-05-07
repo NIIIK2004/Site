@@ -1,12 +1,12 @@
 <template>
     <NavigationComponent/>
-    <div class="course-page">
-        <h1>{{ course.title }}</h1>
-        <img :src="course.src" :alt="course.title" height="300">
-        <p>{{ course.description }}</p>
-        <p>Длительность: {{ course.duration }}</p>
-        <p>Цена: {{ course.price }} руб.</p>
-    </div>
+    <section class="course-page indent">
+        <div class="container">
+            <CourseStart/>
+            <CourseTest/>
+            <CourseLectures/>
+        </div>
+    </section>
     <FooterComponent/>
 </template>
 
@@ -14,9 +14,12 @@
 import axios from "axios";
 import NavigationComponent from "@/components/NavigationComponent.vue";
 import FooterComponent from "@/components/FooterComponent.vue";
+import CourseStart from "@/components/CoursePage/CourseStart.vue";
+import CourseTest from "@/components/CoursePage/CourseTests.vue";
+import CourseLectures from "@/components/CoursePage/CourseLectures.vue";
 
 export default {
-    components: {FooterComponent, NavigationComponent},
+    components: {CourseLectures, CourseTest, CourseStart, FooterComponent, NavigationComponent},
     props: ["id"],
     data() {
         return {
@@ -40,5 +43,13 @@ export default {
 </script>
 
 <style scoped>
+.course-page {
+    margin: 80px 0;
+}
 
+@media (max-width: 992px) {
+    .course-page {
+        margin: 0 0 80px;
+    }
+}
 </style>
