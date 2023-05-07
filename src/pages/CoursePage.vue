@@ -7,7 +7,6 @@
         <p>Длительность: {{ course.duration }}</p>
         <p>Цена: {{ course.price }} руб.</p>
     </div>
-
     <FooterComponent/>
 </template>
 
