@@ -5,6 +5,7 @@ import SingleTest from "@/pages/SingleTest.vue";
 import FAQPage from "@/pages/FAQPage.vue";
 import AllTests from "@/pages/AllTests.vue";
 import CoursePage from "@/pages/CoursePage.vue";
+import RegConfirm from "@/pages/RegConfirm.vue";
 
 const routes = [
     {
@@ -32,6 +33,10 @@ const routes = [
     {
         path: '/faq',
         component: FAQPage,
+    },
+    {
+        path: '/confirm',
+        component: RegConfirm,
     },
 ]
 

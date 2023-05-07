@@ -83,7 +83,6 @@ body {
     font-weight: 500;
     font-size: 18px;
     line-height: 29px;
-    color: #2D2924;
 }
 
 @media (max-width: 1000px) {
