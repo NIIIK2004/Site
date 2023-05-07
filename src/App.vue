@@ -64,7 +64,6 @@ export default {
 @import "../public/css/fonts.css";
 @import "../public/css/global.css";
 
-
 .loading-screen {
     position: fixed;
     top: 0;

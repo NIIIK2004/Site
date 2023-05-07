@@ -1,11 +1,11 @@
 <template>
-    <button class="anchor__button btn" :id="id">{{ text }}</button>
+    <a class="anchor__button btn" :href="href">{{ text }}</a>
 </template>
 
 <script>
 export default {
     props: {
-        id: {
+        href: {
             type: String,
             required: true
         },
@@ -16,6 +16,3 @@ export default {
     }
 }
 </script>
-
-<style scoped>
-</style>

@@ -1,15 +1,21 @@
 <template>
     <NavigationComponent/>
-    <CoursesStart/>
-    <CoursesSection/>
+    <div class="container">
+        <CoursesStart/>
+        <CoursesSection/>
+    </div>
+    <ContactsFormComponent/>
+    <FooterComponent/>
 </template>
 <script>
 import NavigationComponent from "@/components/NavigationComponent.vue";
 import CoursesStart from "@/components/CoursesPage/CoursesStart.vue";
 import CoursesSection from "@/components/CoursesPage/CoursesSection.vue";
+import ContactsFormComponent from "@/components/ContactsFormComponent.vue";
+import FooterComponent from "@/components/FooterComponent.vue";
 
 export default {
-    components: {CoursesSection, CoursesStart, NavigationComponent},
+    components: {FooterComponent, ContactsFormComponent, CoursesSection, CoursesStart, NavigationComponent},
     NavigationComponent,
     name: "CoursesPage",
     methods: {

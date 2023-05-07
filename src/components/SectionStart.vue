@@ -8,7 +8,8 @@
                 <p class="start__text">
                     Поможем быстро выучить английский язык, и научим грамотно использовать его в жизни
                 </p>
-                <router-link to="/singletest" @click.prevent="animateTransition">Узнать уровень английского
+                <router-link class="start__btn btn" to="/singletest" @click.prevent="animateTransition">Узнать уровень
+                    английского
                 </router-link>
             </div>
         </div>
