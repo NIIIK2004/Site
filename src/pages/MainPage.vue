@@ -1,9 +1,11 @@
 <template>
     <NavigationComponent/>
     <SectionStart/>
-    <InterestingTests/>
-    <PopularCourses/>
-    <ContactsFormComponent/>
+    <div class="container">
+        <InterestingTests/>
+        <PopularCourses/>
+        <ContactsFormComponent/>
+    </div>
     <ReviewsComponent/>
     <FooterComponent/>
 </template>

@@ -1,13 +1,15 @@
 <template>
     <div class="test__information-filtres indent">
-        <button class="test__information-button btn">По уровням</button>
-        <button class="test__information-button btn">По целям</button>
-        <button class="test__information-button btn">Для детей</button>
+        <button class="test__information-button btn" onclick="location.href='#levels'">По уровням</button>
+        <button class="test__information-button btn" onclick="location.href='#tasks'">По целям</button>
+        <button class="test__information-button btn" onclick="location.href='#child'">Для детей</button>
     </div>
-    <section class="subsection__information indent">
+    <section class="subsection__information indent" id="levels">
         <div class="subsection__information-left">
-            <h2 class="subsection__information-title section-title">Тесты по уровням</h2>
-            <p class="subsection__information-description">Специально для вас отсортировали тесты по уровням от Начинающего до
+            <h2 class="TestsByGoals__information-title subsection__information-title section-title">Тесты по
+                уровням</h2>
+            <p class="subsection__information-description">Специально для вас отсортировали тесты по уровням от
+                Начинающего до
                 Продвинутого!</p>
         </div>
         <div class="subsection__information-right">
@@ -52,5 +54,17 @@
 
 .test__information-filtres {
     margin-top: 30px;
+}
+
+@media (max-width: 460px) {
+    .test__information-button {
+        font-size: 16px;
+        gap: 9px;
+    }
+}
+@media (max-width: 360px) {
+    .test__information-filtres[data-v-a040f6a6] {
+        gap: 8px;
+    }
 }
 </style>

@@ -1,22 +1,24 @@
 <template>
-    <div class="container">
-        <div class="contacts__wrapper">
-            <h2 class="contacts__title section-title">Определим цели и подберем оптимальный курс</h2>
-            <img class="contacts__img" src="../../public/images/decor-for-contacts.png" alt="decor">
-        </div>
-        <form class="contacts-form">
-            <div class="contacts__action">
-                <input class="contacts__action-name" type="text" placeholder="Имя" required>
-                <input class="contacts__action-tel"
-                       pattern="^\+?(?:7|8)\s?\(?\d{3}\)?[\s-]?\d{3}[\s-]?\d{2}[\s-]?\d{2}$"
-                       type="number" name="tel" placeholder="Номер телефона" inputmode="numeric" required>
-                <input class="contacts__action-email" type="email" placeholder="Email" required>
-                <button class="contacts__action-btn btn">Оставить заявку</button>
+    <section class="contacts indent">
+        <div class="container">
+            <div class="contacts__wrapper">
+                <h2 class="contacts__title section-title">Определим цели и подберем оптимальный курс</h2>
+                <img src="../../public/images/decor-for-contacts.png" alt="decor">
             </div>
-            <div class="line"></div>
-            <p class="contacts__info">Оставляя заявку, вы соглашаетесь с политикой конфиденциальности</p>
-        </form>
-    </div>
+            <form class="contacts-form">
+                <div class="contacts__action">
+                    <input class="contacts__action-name" type="text" placeholder="Имя" required>
+                    <input class="contacts__action-tel"
+                           pattern="^\+?(?:7|8)\s?\(?\d{3}\)?[\s-]?\d{3}[\s-]?\d{2}[\s-]?\d{2}$"
+                           type="number" name="tel" placeholder="Номер телефона" inputmode="numeric" required>
+                    <input class="contacts__action-email" type="email" placeholder="Email" required>
+                    <button class="contacts__action-btn btn">Оставить заявку</button>
+                </div>
+                <div class="line"></div>
+                <p class="contacts__info">Оставляя заявку, вы соглашаетесь с политикой конфиденциальности</p>
+            </form>
+        </div>
+    </section>
 </template>
 
 
@@ -26,12 +28,19 @@
 
 
 <style>
+
+.contacts {
+    background: #EFFFCE !important;
+    border-radius: 25px;
+    padding: 60px 45px;
+}
+
 input {
     padding: 18px;
     color: #CBCBCB;
     background: #F5F5F5;
     border-radius: 10px;
-    border: transparent;
+    border: 1px solid transparent;
     transition: all .4s;
     max-width: 232px;
     width: 100%;
@@ -60,13 +69,14 @@ input::placeholder {
     justify-content: space-between;
 }
 
+.contacts__wrapper img{
+    object-fit: contain;
+}
+
+
 .contacts__title {
     max-width: 634px;
     font-weight: 600;
-}
-
-.contacts__img {
-    object-fit: contain;
 }
 
 .contacts-form {
@@ -122,6 +132,12 @@ input::placeholder {
     }
 }
 
+@media (max-width: 670px) {
+    .contacts {
+        padding: 40px 30px;
+    }
+}
+
 @media (max-width: 480px) {
     .contacts__info {
         font-size: 14px;
@@ -144,7 +160,12 @@ input::placeholder {
     .contacts__title {
         font-size: 29px;
     }
+
+    .contacts {
+        padding: 20px;
+    }
 }
+
 
 
 </style>
