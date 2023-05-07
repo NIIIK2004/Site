@@ -1,35 +1,33 @@
 <template>
     <section class="interesting-test indent">
-        <div class="container">
-            <h2 class="interesting-test__title section-title">Интересные тесты и бесплатные курсы</h2>
-            <div class="interesting-test__inner">
-                <div class="interesting-test__left">
-                    <div class="interesting-test__item">
-                        <img class="interesting-test__icon image-cover" :src="quick" alt="изучение английского языка"
-                             width="50"
-                             height="50">
-                        <h3 class="interesting-test__name">Быстрый старт</h3>
-                        <p class="interesting-test__text">
-                            Уже после первого урока вы значительно повысите свой уровень английского
-                        </p>
-                    </div>
-                    <div class="interesting-test__item">
-                        <img class="interesting-test__icon image-cover" :src="progress" alt="изучение английского языка"
-                             width="50"
-                             height="50">
-                        <h3 class="interesting-test__name">Наглядный прогресс</h3>
-                        <p class="interesting-test__text">
-                            Следите за своим прогрессом прямо из личного кабинета
-                        </p>
-                    </div>
-                </div>
-                <div class="interesting-test__item interesting-test__item--big">
-                    <h3 class="interesting-test__name">Все знания под рукой</h3>
+        <h2 class="interesting-test__title section-title">Интересные тесты и бесплатные курсы</h2>
+        <div class="interesting-test__inner">
+            <div class="interesting-test__left">
+                <div class="interesting-test__item">
+                    <img class="interesting-test__icon image-cover" :src="quick" alt="изучение английского языка"
+                         width="50"
+                         height="50">
+                    <h3 class="interesting-test__name">Быстрый старт</h3>
                     <p class="interesting-test__text">
-                        Весь ваш прогресс по изучению английского сохраняется на удобном и функциональном сайте
+                        Уже после первого урока вы значительно повысите свой уровень английского
                     </p>
-                    <img class="interesting-test__img" :src="bigItem" alt="" width="400" height="310">
                 </div>
+                <div class="interesting-test__item">
+                    <img class="interesting-test__icon image-cover" :src="progress" alt="изучение английского языка"
+                         width="50"
+                         height="50">
+                    <h3 class="interesting-test__name">Наглядный прогресс</h3>
+                    <p class="interesting-test__text">
+                        Следите за своим прогрессом прямо из личного кабинета
+                    </p>
+                </div>
+            </div>
+            <div class="interesting-test__item interesting-test__item--big">
+                <h3 class="interesting-test__name">Все знания под рукой</h3>
+                <p class="interesting-test__text">
+                    Весь ваш прогресс по изучению английского сохраняется на удобном и функциональном сайте
+                </p>
+                <img class="interesting-test__img" :src="bigItem" alt="" width="400" height="310">
             </div>
         </div>
     </section>

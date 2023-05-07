@@ -1,6 +1,5 @@
 <template>
     <section class="popular-courses indent">
-        <div class="container">
             <h2 class="section-title">
                 Популярные курсы
             </h2>
@@ -15,7 +14,6 @@
                     <CardPopularCourses :courses="paidCourses"/>
                 </div>
             </TabsCourses>
-        </div>
     </section>
 </template>
 

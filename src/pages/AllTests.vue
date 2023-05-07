@@ -15,7 +15,7 @@
             <TestsForSenior/>
         </section>
 
-        <section class="TestsByGoals__information indent">
+        <section class="TestsByGoals__information indent" id="tasks">
             <div class="TestsByGoals__information-left">
                 <h2 class="TestsByGoals__information-title section-title">Тесты по целям</h2>
                 <p class="TestsByGoals__information-description">Специально для вас отсортировали тесты по уровням от
@@ -36,6 +36,21 @@
             <TestsForStudy/>
         </section>
 
+        <section class="TestsByChild__information indent" id="child">
+            <div class="TestsByChild__information-left">
+                <h2 class="TestsByChild__information-title section-title">Тесты для детей</h2>
+                <p class="TestsByChild__information-description">Английский для самых маленьких!</p>
+            </div>
+            <div class="TestsByChild__information-right">
+                <img src="../../public/images/alltests/piramidka.svg" alt="decor">
+            </div>
+        </section>
+
+        <section class="indent">
+            <TestsForChild/>
+        </section>
+
+
         <ContactsFormComponent/>
     </div>
     <FooterComponent/>
@@ -55,9 +70,11 @@ import TestsForSenior from "@/components/TestsForSenior.vue";
 import TestsForStudy from "@/components/TestsForStudy.vue";
 import TestsForTravel from "@/components/TestsForTravel.vue";
 import TestsForWork from "@/components/TestsForWork.vue";
+import TestsForChild from "@/components/TestsForChild.vue";
 
 export default defineComponent({
     components: {
+        TestsForChild,
         TestsForBeginner,
         TestsForMiddle,
         TestsForSenior,
@@ -73,10 +90,19 @@ export default defineComponent({
 
 <style>
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background: #FFF;
 }
 
+.test__information {
+    margin-top: 180px;
+}
+
+.TestsByChild__information,
 .TestsByGoals__information {
     display: flex;
     justify-content: space-between;
@@ -88,6 +114,7 @@ body {
     transform: rotate(30deg);
 }
 
+.TestsByChild__information-title,
 .TestsByGoals__information-title {
     font-family: 'Stolzl';
     font-weight: 600;
@@ -96,6 +123,7 @@ body {
     color: #2D2924;
 }
 
+.TestsByChild__information-description,
 .TestsByGoals__information-description {
     margin-top: 30px;
     font-family: 'Stolzl';
@@ -103,6 +131,137 @@ body {
     font-size: 32px;
     line-height: 38px;
     color: #2D2924;
+}
+
+.TestsByChild__information-title {
+    color: #B275FF;
+}
+
+@media (max-width: 1250px) {
+    .TestsByGoals__information-right {
+        transform: unset;
+    }
+}
+
+@media (max-width: 1150px) {
+    .subsection__information-right[data-v-a040f6a6] {
+        /* text-align: center; */
+        justify-content: center;
+        display: grid;
+    }
+
+    .subsection__information[data-v-a040f6a6] {
+        text-align: center;
+        flex-direction: column;
+    }
+
+    .subsection__information-right[data-v-a040f6a6] {
+        margin-top: 60px;
+    }
+
+    .test__information-filtres[data-v-a040f6a6] {
+        justify-content: center;
+    }
+
+    .test__information-title {
+        text-align: center;
+    }
+
+    .TestsByChild__information, .TestsByGoals__information {
+        flex-direction: column;
+    }
+
+    .TestsByChild__information-right,
+    .TestsByGoals__information-right {
+        width: 15%;
+        margin-top: 50px;
+    }
+
+    .TestsByChild__information-title, .TestsByGoals__information-title {
+        text-align: center;
+    }
+
+    .TestsByChild__information-description, .TestsByGoals__information-description {
+        margin-top: unset;
+        font-size: 22px;
+        line-height: 26px;
+        text-align: center;
+        width: 600px;
+    }
+}
+
+@media (max-width: 768px) {
+    .test__information-title {
+        font-size: 70px;
+    }
+
+    .test__information-button {
+        font-size: 21px;
+    }
+
+    .test__information {
+        margin-top: 70px;
+    }
+
+    .subsection__information-description[data-v-a040f6a6] {
+        font-size: 24px;
+        line-height: 28px;
+        max-width: 480px;
+    }
+}
+
+@media (max-width: 658px) {
+    .subsection__information-right[data-v-a040f6a6],
+    .TestsByChild__information-right, .TestsByGoals__information-right {
+        display: none;
+    }
+
+    .TestsByChild__information-description, .TestsByGoals__information-description {
+        margin-top: unset;
+        font-size: 19px;
+        line-height: 22px;
+        text-align: left;
+        width: 380px;
+    }
+    .TestsByChild__information-description, .TestsByGoals__information-description {
+        width: 100%;
+    }
+
+    .test__information-filtres {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 460px) {
+    .TestsByChild__information-title, .TestsByGoals__information-title {
+        text-align: left;
+        font-size: 37px;
+        line-height: 54px;
+        max-width: 270px;
+    }
+
+    .subsection__information-description[data-v-a040f6a6] {
+        font-size: 19px;
+        line-height: 21px;
+        text-align: left;
+        margin: 20px 0 0;
+    }
+
+    .TestsByChild__information, .TestsByGoals__information {
+        display: block;
+    }
+}
+
+@media (max-width: 360px) {
+    .test__information {
+        margin-top: 40px;
+    }
+    .TestsByChild__information-title, .TestsByGoals__information-title {
+        font-size: 26px;
+        line-height: 130%;
+        max-width: 270px;
+    }
+
 }
 
 

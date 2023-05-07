@@ -21,10 +21,7 @@
             <h2 class="knowledge__title section-title">Как тест проверяет ваши знания</h2>
             <KnowledgeBlocks/>
         </section>
-
-        <section class="contacts indent">
-            <ContactsFormComponent/>
-        </section>
+        <ContactsFormComponent/>
     </div>
     <FooterComponent/>
 </template>
@@ -40,7 +37,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 body {
     background: #F8FFEB;
 }
@@ -52,7 +49,7 @@ body {
 }
 
 .contacts {
-    background: #EFFFCE;
+    background: #EFFFCE !important;
     border-radius: 25px;
     padding: 60px 45px;
 }
@@ -104,12 +101,6 @@ body {
     }
 }
 
-@media (max-width: 670px) {
-    .contacts {
-        padding: 40px 30px;
-    }
-}
-
 @media (max-width: 600px) {
     .examinationСomponent[data-v-f8b4a2a2] {
         margin-top: 10px;
@@ -148,10 +139,6 @@ body {
         color: #2D2924;
         font-size: 22px;
     }
-    .contacts {
-        padding: 20px;
-    }
-
 }
 
 
