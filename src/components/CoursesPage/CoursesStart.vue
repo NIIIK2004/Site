@@ -14,7 +14,7 @@
 
 <style scoped>
 .start {
-    margin: 70px 0 50px;
+    margin: 70px 0 80px;
 }
 
 .start__inner {

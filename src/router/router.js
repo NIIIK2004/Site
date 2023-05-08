@@ -7,6 +7,9 @@ import AllTests from "@/pages/AllTests.vue";
 import CoursePage from "@/pages/CoursePage.vue";
 import RegConfirm from "@/pages/RegConfirm.vue";
 import TestPage from "@/pages/TestPage.vue";
+import NewsPage from "@/pages/NewsPage.vue";
+import NewsArticle from "@/pages/NewsArticle.vue";
+import OfflineLessonPage from "@/pages/OfflineLessonPage.vue";
 
 const routes = [
     {
@@ -42,6 +45,20 @@ const routes = [
     {
         path: '/test',
         component: TestPage,
+    },
+    {
+        path: '/news',
+        component: NewsPage,
+    },
+    {
+        path: "/news/:id",
+        name: "news",
+        component: NewsArticle,
+        props: true
+    },
+    {
+        path: '/offlinelesson',
+        component: OfflineLessonPage,
     },
 ]
 
