@@ -1,86 +1,56 @@
 <template>
-
-    <button class="accordion">Section 1</button>
-    <div class="panel">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea commodo consequat.</p>
+    <div class="faq__wrapper">
+        <div class="faq__field-wrapper">
+            <div class="faq__filed" v-for="(faq, i) in faqBase" :key="i">
+                <div class="open__faq" @click="closeAllFaq(faq)">
+                    <h3 class="deactive" :class="faq.open ? 'active' : '' ">
+                        {{ faq.q }}
+                    </h3>
+                    <p class="invisible" :class="faq.open ? 'visible' : '' ">{{ faq.a }}</p>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <button class="accordion">Section 2</button>
-    <div class="panel">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea commodo consequat.</p>
-    </div>
-
-    <button class="accordion">Section 3</button>
-    <div class="panel">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea commodo consequat.</p>
-    </div>
-
-
-  <!--    <div class="accordion sidebar_menu_list" >-->
-  <!--        <div v-for="question in questions" :key="question.id">-->
-  <!--            <input id="sb_ml-1" name="sidebar_menu-1" type="checkbox"/>-->
-  <!--            <label for="sb_ml-1">{{question.question}}</label>-->
-
-  <!--            <article class="sb_ml submenu-1">-->
-  <!--                <ul>-->
-  <!--                    <li id="sub_menu_1-1">{{question.answer}}</li>-->
-  <!--                </ul>-->
-
-  <!--            </article>-->
-  <!--        </div>-->
-  <!--    </div>-->
 </template>
 
 <script>
-var acc = document.getElementsByClassName("accordion");
-var i;
 
-for (i = 0; i < acc.length; i++) {
-    acc[i].addEventListener("click", function () {
-        this.classList.toggle("active");
-        var panel = this.nextElementSibling;
-        if (panel.style.display === "block") {
-            panel.style.display = "none";
-        } else {
-            panel.style.display = "block";
-        }
-    });
+import {ref} from 'vue'
 
-}
 export default {
     name: "AccordionsForFAQ",
 
-    data() {
-        return {
-            questions: [
-                {
-                    id: 1,
-                    question: "Что нужно, чтобы начать обучение?",
-                    answer: "Абсолютно ничего, кроме устройства, у которого есть микрофон, камера и доступ к сайту Astyx.",
-                },
-                {
-                    id: 2,
-                    question: "Не могу прийти на урок, что делать? ",
-                    answer: "Абслютно ничего, вот просто ничего и все, вы не получите знаний и все",
-                },
-                {
-                    id: 3,
-                    question: "Мало времени, боюсь не буду успевать",
-                    answer: "Не надо тогда покупать курс че к чему надо сразу рассчитывать на то что время будет хватать",
-                },
-                {
-                    id: 4,
-                    question: "Хочу работать у вас, как начать?",
-                    answer: "каво? работать? надо сначала выучить 12 языков мира и потом уже можно со смелостью придти и заявить о себе пока ты просто ученник",
-                },
-            ]
+
+    setup() {
+        const faqBase = ref([
+            {
+                q: 'Что нужно, чтобы начать обучение?',
+                a: 'Цель и Мотивация, Расписание и Время, Наши ресурсы и Материалы Самодисциплина и настойчивость, все, а поддержка и менторство уже с нашей стороны.',
+                open: false,
+            },
+            {
+                q: 'Не могу прийти на урок, что делать?',
+                a: 'Если вы не можете прийти на урок, вам необходимо связаться с преподавателем или учебным заведением, чтобы уведомить их о вашем отсутствии',
+                open: false,
+            },
+            {
+                q: 'Хочу работать у вас, как начать?',
+                a: 'Если вы хотите работать в нашей компании, вам необходимо ознакомиться с нашими вакансиями на сайте',
+                open: false,
+            },
+            {
+                q: 'Мало времени, боюсь не буду успевать',
+                a: 'Если у вас мало времени и вы боитесь, что не сможете успеть выполнить все свои задачи, вам необходимо организовать свое время и приоритизировать задачи.',
+                open: false,
+            },
+        ])
+        const closeAllFaq = (item) => {
+            if (!item.open) {
+                faqBase.value.forEach(el => el.open = false)
+            }
+            item.open = !item.open;
         }
+        return {faqBase, closeAllFaq}
     }
 }
 
@@ -88,28 +58,121 @@ export default {
 </script>
 
 <style scoped>
-.accordion {
-    background-color: #eee;
-    color: #444;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    border: none;
+
+.faq__wrapper {
+    margin-top: 50px;
     text-align: left;
-    outline: none;
-    font-size: 15px;
-    transition: 0.4s;
+    max-width: 100%;
+    margin: 40px auto;
 }
 
-.active, .accordion:hover {
-    background-color: #ccc;
+.faq__field-wrapper {
+    margin-top: 20px;
 }
 
-.panel {
-    padding: 0 18px;
-    background-color: white;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.2s ease-out;
+.faq__filed {
+    border: 1px solid transparent;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+.open__faq {
+}
+
+.invisible {
+    visibility: hidden;
+    opacity: 0;
+    height: 0;
+    transition: opacity .3s, height .3s, padding .3s, visibility .3s;
+}
+
+.visible {
+    visibility: visible;
+    height: 40px;
+    opacity: 1;
+    padding: 0px 25px;
+}
+
+h3 {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 0 24px 0;
+    margin: 5px 0;
+}
+
+.open__faq {
+    cursor: pointer;
+}
+
+.deactive::after {
+    content: "";
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background: url("../../public/images/icons/arrow-down.svg") no-repeat;
+    right: 0;
+    margin-top: 15px;
+
+    transition: all .3s;
+}
+
+.deactive.active::after {
+    transform: rotateX(-180deg);
+}
+
+@media (max-width: 650px) {
+    .visible {
+        padding: 0;
+    }
+}
+
+@media (max-width: 950px) {
+    .visible {
+        height: 90px;
+    }
+}
+
+@media (max-width: 530px) {
+    .visible {
+        height: 60px;
+    }
+
+    h3 {
+        font-size: 18px;
+        padding: 5px 0 10px 0;
+    }
+
+    p {
+        font-size: 15px;
+    }
+
+    .deactive[data-v-0ba99845]::after {
+        margin-top: 10px;
+    }
+}
+
+
+@media (max-width: 460px) {
+    .deactive.active::after {
+        margin-top: -20px;
+    }
+
+    h3 {
+        font-size: 19px;
+    }
+
+    p {
+        font-size: 17px;
+    }
+
+    .visible[data-v-0ba99845] {
+        height: auto;
+    }
+
+    .deactive[data-v-0ba99845]::after {
+        display: none;
+    }
 }
 </style>
