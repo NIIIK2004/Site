@@ -53,6 +53,10 @@
 }
 
 @media (max-width: 1200px) {
+    .course-page__top {
+        margin-bottom: 70px;
+    }
+
     .course-page__content {
         margin-right: 30px;
     }

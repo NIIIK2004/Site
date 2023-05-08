@@ -1,6 +1,6 @@
 <template>
     <h2 class="course-page__subtitle">Тесты:</h2>
-    <ul class="course-page__list">
+    <ul class="course-page__list course-page__list--tests">
         <li class="course-page__item" v-for="item in items" :key="item.id">
             <p class="course-page__text">{{ item.text }}</p>
         </li>
@@ -36,6 +36,10 @@ export default {
     grid-gap: 20px;
 }
 
+.course-page__list--tests {
+    margin-bottom: 110px;
+}
+
 .course-page__item {
     background-color: #B4FE1A;
     padding: 25px;
@@ -55,5 +59,53 @@ export default {
     width: 100px;
     height: 3px;
     background-color: #2D2924;
+}
+
+@media (max-width: 1200px) {
+    .course-page__subtitle {
+        font-size: 26px;
+        margin-bottom: 25px;
+    }
+
+    .course-page__list--tests {
+        margin-bottom: 80px;
+    }
+}
+
+@media (max-width: 992px) {
+    .course-page__subtitle {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .course-page__list--tests {
+        margin-bottom: 60px;
+    }
+}
+
+@media (max-width: 768px) {
+    .course-page__subtitle {
+        font-size: 22px;
+    }
+
+    .course-page__list {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .course-page__subtitle {
+        font-size: 20px;
+    }
+
+    .course-page__text {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 468px) {
+    .course-page__text {
+        font-size: 14px;
+    }
 }
 </style>
