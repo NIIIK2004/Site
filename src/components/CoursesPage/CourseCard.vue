@@ -29,7 +29,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .course-card {
     background-color: #F1F1F1;
     border-radius: 15px;

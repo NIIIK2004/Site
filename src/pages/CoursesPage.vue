@@ -3,8 +3,8 @@
     <div class="container">
         <CoursesStart/>
         <CoursesSection/>
+        <ContactsFormComponent/>
     </div>
-    <ContactsFormComponent/>
     <FooterComponent/>
 </template>
 <script>
