@@ -19,6 +19,7 @@
 <script>
 export default {
     methods: {
+
         animateTransition() {
             const overlay = document.createElement('div');
             overlay.style.position = 'fixed';

@@ -1,4 +1,5 @@
 <template>
+    <NavigationComponent/>
     <div class="container">
 
         <h1 class="faq-title page-title">Ответы на часто задаваемые вопросы</h1>
@@ -25,9 +26,11 @@ import FooterComponent from "@/components/FooterComponent.vue";
 import AccordionComponent from "@/components/AccordionComponent.vue";
 import ContactsFormComponent from "@/components/ContactsFormComponent.vue";
 import FormsForFAQ from "@/components/FormsForFAQ.vue";
+import NavigationComponent from "@/components/NavigationComponent.vue";
 
 export default {
     components: {
+        NavigationComponent,
         AccordionComponent,
         FooterComponent,
         ContactsFormComponent,

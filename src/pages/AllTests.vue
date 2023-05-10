@@ -1,4 +1,5 @@
 <template>
+    <NavigationComponent/>
     <div class="container">
         <section class="test__information">
             <h1 class="test__information-title section-title">Тесты</h1>
@@ -71,9 +72,11 @@ import TestsForStudy from "@/components/TestsForStudy.vue";
 import TestsForTravel from "@/components/TestsForTravel.vue";
 import TestsForWork from "@/components/TestsForWork.vue";
 import TestsForChild from "@/components/TestsForChild.vue";
+import NavigationComponent from "@/components/NavigationComponent.vue";
 
 export default defineComponent({
     components: {
+        NavigationComponent,
         TestsForChild,
         TestsForBeginner,
         TestsForMiddle,
@@ -84,6 +87,49 @@ export default defineComponent({
         TestsForStudy,
         TestsForTravel,
         TestsForWork,
+    },
+
+    NavigationComponent,
+    name: "MainPage",
+    methods: {
+        animateTransition() {
+            const overlay = document.createElement('div');
+            overlay.style.position = 'fixed';
+            overlay.style.top = '0';
+            overlay.style.left = '0';
+            overlay.style.width = '100%';
+            overlay.style.height = '100%';
+            overlay.style.background = 'white';
+            overlay.style.zIndex = '9999';
+
+            const slide = document.createElement('div');
+            slide.style.position = 'fixed';
+            slide.style.bottom = '0';
+            slide.style.left = '0';
+            slide.style.width = '100%';
+            slide.style.height = '0';
+            slide.style.background = '#CAFD5E';
+            slide.style.zIndex = '10000';
+            slide.style.transition = 'all 0.5s ease-in-out';
+
+            document.body.appendChild(overlay);
+            document.body.appendChild(slide);
+
+            setTimeout(() => {
+                slide.style.height = '100vh';
+                setTimeout(() => {
+                    slide.style.transform = 'translateY(-50%)';
+                    setTimeout(() => {
+                        slide.style.transform = 'translateY(-100%)';
+                        overlay.style.opacity = '0';
+                        setTimeout(() => {
+                            document.body.removeChild(overlay);
+                            document.body.removeChild(slide);
+                        }, 500);
+                    }, 500);
+                }, 500);
+            }, 10);
+        }
     }
 })
 </script>
