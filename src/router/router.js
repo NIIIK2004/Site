@@ -57,14 +57,6 @@ const routes = [
         component: NewsArticle,
         props: true
     },
-    {
-        path: '/offlinelesson',
-        component: OfflineLessonPage,
-    },
-    {
-        path: '/testprocess',
-        component: TestProcess,
-    },
 ]
 
 const router = createRouter({
