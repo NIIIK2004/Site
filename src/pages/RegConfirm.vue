@@ -1,4 +1,5 @@
 <template>
+    <NavigationComponent/>
   <div class="reg-confirm">
     <div class="context">
       <p class="title">Регистрация успешно завершена</p>
@@ -25,7 +26,9 @@
 
 <script>
 import router from '@/router/router'
+import NavigationComponent from "@/components/NavigationComponent.vue";
 export default {
+    components: {NavigationComponent},
 mounted() {
   const timeEl = document.querySelector('.time');
   let secondsLeft = 5;
@@ -46,46 +49,46 @@ mounted() {
 },
 
 
-  methods: {
-    animateTransition() {
-      const overlay = document.createElement('div');
-      overlay.style.position = 'fixed';
-      overlay.style.top = '0';
-      overlay.style.left = '0';
-      overlay.style.width = '100%';
-      overlay.style.height = '100%';
-      overlay.style.background = 'white';
-      overlay.style.zIndex = '9999';
+    methods: {
+        animateTransition() {
+            const overlay = document.createElement('div');
+            overlay.style.position = 'fixed';
+            overlay.style.top = '0';
+            overlay.style.left = '0';
+            overlay.style.width = '100%';
+            overlay.style.height = '100%';
+            overlay.style.background = 'white';
+            overlay.style.zIndex = '9999';
 
-      const slide = document.createElement('div');
-      slide.style.position = 'fixed';
-      slide.style.bottom = '0';
-      slide.style.left = '0';
-      slide.style.width = '100%';
-      slide.style.height = '0';
-      slide.style.background = '#CAFD5E';
-      slide.style.zIndex = '10000';
-      slide.style.transition = 'all 0.5s ease-in-out';
+            const slide = document.createElement('div');
+            slide.style.position = 'fixed';
+            slide.style.bottom = '0';
+            slide.style.left = '0';
+            slide.style.width = '100%';
+            slide.style.height = '0';
+            slide.style.background = '#CAFD5E';
+            slide.style.zIndex = '10000';
+            slide.style.transition = 'all 0.5s ease-in-out';
 
-      document.body.appendChild(overlay);
-      document.body.appendChild(slide);
+            document.body.appendChild(overlay);
+            document.body.appendChild(slide);
 
-      setTimeout(() => {
-        slide.style.height = '100vh';
-        setTimeout(() => {
-          slide.style.transform = 'translateY(-50%)';
-          setTimeout(() => {
-            slide.style.transform = 'translateY(-100%)';
-            overlay.style.opacity = '0';
             setTimeout(() => {
-              document.body.removeChild(overlay);
-              document.body.removeChild(slide);
-            }, 500);
-          }, 500);
-        }, 500);
-      }, 10);
+                slide.style.height = '100vh';
+                setTimeout(() => {
+                    slide.style.transform = 'translateY(-50%)';
+                    setTimeout(() => {
+                        slide.style.transform = 'translateY(-100%)';
+                        overlay.style.opacity = '0';
+                        setTimeout(() => {
+                            document.body.removeChild(overlay);
+                            document.body.removeChild(slide);
+                        }, 500);
+                    }, 500);
+                }, 500);
+            }, 10);
+        }
     }
-  }
 };
 </script>
 

@@ -10,6 +10,7 @@ import TestPage from "@/pages/TestPage.vue";
 import NewsPage from "@/pages/NewsPage.vue";
 import NewsArticle from "@/pages/NewsArticle.vue";
 import OfflineLessonPage from "@/pages/OfflineLessonPage.vue";
+import TestProcess from "@/pages/TestProcess.vue";
 
 const routes = [
     {
@@ -59,6 +60,10 @@ const routes = [
     {
         path: '/offlinelesson',
         component: OfflineLessonPage,
+    },
+    {
+        path: '/testprocess',
+        component: TestProcess,
     },
 ]
 

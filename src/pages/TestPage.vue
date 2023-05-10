@@ -1,4 +1,5 @@
 <template>
+    <NavigationComponent/>
     <div class="container">
         <div class="test__general">
             <div class="test__left">
@@ -20,13 +21,46 @@
 
 <script>
 
+
+// import axios from "axios";
+
+// export default {
+//     data() {
+//         return {
+//             myData: {
+//
+//             };
+//         }
+//         mounted() {
+//             axios.get('/api/my-data')
+//                 .then(response => {
+//                     this.myData = response.data;
+//                 })
+//                 .catch(error => {
+//                     console.log(error);
+//                 });
+//         }
+//     }
+// }
+
+
+
+
+
+
+
+import {defineComponent} from "vue";
+import NavigationComponent from "@/components/NavigationComponent.vue";
+
+export default defineComponent({
+    components: {NavigationComponent}
+})
 </script>
 
 <style scoped>
 
 body {
     background: #F8FFEB;
-    height: auto;
 }
 
 .test__general {
@@ -136,26 +170,82 @@ body {
             width: 100%;
             margin-right: 0;
         }
+
         .test__general {
             margin-top: 0px;
         }
+
         .test__general {
             align-items: unset;
         }
+
         .test__left-img[data-v-3a85db36] {
             width: 100%;
             height: 350px;
             object-fit: cover;
         }
+
         .test__cost, .test__title {
             font-size: 48px;
         }
+
         .test__cost,
         .test__description {
             margin-top: 25px;
         }
+
         .test__btn[data-v-3a85db36] {
             margin-top: 30px;
+        }
+
+        .test__description[data-v-3a85db36][data-v-3a85db36] {
+            margin-top: 15px;
+            font-size: 23px;
+        }
+    }
+    @media (max-width: 590px) {
+        .test__cost[data-v-3a85db36], .test__title[data-v-3a85db36] {
+            font-size: 32px;
+        }
+
+        .test__cost[data-v-3a85db36], .test__description[data-v-3a85db36] {
+            margin-top: 20px;
+        }
+
+        .test__btn[data-v-3a85db36][data-v-3a85db36] {
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .test__dop-info[data-v-3a85db36] {
+            margin-top: 15px;
+            display: flex;
+            gap: 20px;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        .test__dop-info span[data-v-3a85db36] {
+            font-size: 15px;
+            border-left: 1px solid #2D2924;
+            padding-left: 6px;
+            height: 18px;
+        }
+    }
+    @media (max-width: 400px) {
+        .test__description[data-v-3a85db36][data-v-3a85db36][data-v-3a85db36] {
+            margin-top: 13px;
+            font-size: 18px;
+        }
+        .test__cost[data-v-3a85db36][data-v-3a85db36], .test__title[data-v-3a85db36][data-v-3a85db36] {
+            font-size: 27px;
+        }
+        .test__cost[data-v-3a85db36][data-v-3a85db36], .test__description[data-v-3a85db36][data-v-3a85db36] {
+            margin-top: 3px;
+        }
+        .test__btn[data-v-3a85db36][data-v-3a85db36][data-v-3a85db36] {
+            margin-top: 10px;
+            width: 100%;
         }
     }
 }
