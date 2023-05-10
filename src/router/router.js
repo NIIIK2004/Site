@@ -10,6 +10,10 @@ import TestPage from "@/pages/TestPage.vue";
 import NewsPage from "@/pages/NewsPage.vue";
 import NewsArticle from "@/pages/NewsArticle.vue";
 import OfflineLessonPage from "@/pages/OfflineLessonPage.vue";
+import RegPage from "@/pages/RegPage.vue";
+import AuthPage from "@/pages/AuthPage.vue";
+import ProfilePage from "@/pages/ProfilePage.vue";
+import ErrorPage from "@/pages/ErrorPage.vue";
 
 const routes = [
     {
@@ -60,6 +64,26 @@ const routes = [
         path: '/offlinelesson',
         component: OfflineLessonPage,
     },
+    {
+        path: '/reg',
+        component: RegPage,
+    },
+    {
+        path: '/auth',
+        component: AuthPage,
+    },
+    {
+        path: '/profile',
+        component: ProfilePage,
+    },
+  {
+    path: '/error',
+    component: ErrorPage,
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    redirect: '/error',
+  },
 ]
 
 const router = createRouter({

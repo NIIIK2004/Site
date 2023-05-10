@@ -3,7 +3,7 @@
     <div class="context">
       <p class="title">Регистрация успешно завершена</p>
       <p class="smile">🥳</p>
-      <router-link to="/" @click.prevent="animateTransition">перейти на главную</router-link>
+      <router-link to="/auth" @click.prevent="animateTransition">Авторизоваться</router-link>
       <p class="time"></p>
     </div>
     <div class="area">
@@ -28,7 +28,7 @@ import router from '@/router/router'
 export default {
 mounted() {
   const timeEl = document.querySelector('.time');
-  let secondsLeft = 5;
+  let secondsLeft = 10;
 
   const countdown = setInterval(() => {
     if (secondsLeft <= 0) {
@@ -36,7 +36,7 @@ mounted() {
       timeEl.textContent = 'Пока!!!';
       setTimeout(() => {
         this.animateTransition();
-        router.push("/");
+        router.push("/auth");
       }, 1000);
     } else {
       timeEl.textContent = `${secondsLeft}`;

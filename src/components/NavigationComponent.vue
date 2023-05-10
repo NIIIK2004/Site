@@ -45,12 +45,21 @@ export default {
                     id: 4,
                     name: "Войти",
                     icon: '../images/icons/navigation__login.svg',
-                    path: "/auth"
+                    path: "/reg"
                 }
             ],
             logo: '../images/logo.png'
         }
     },
+   created() {
+    // Проверяем малыша есть ли он
+    const user = localStorage.getItem('user');
+    if (user) {
+      this.links[3].name = "Профиль";
+      this.links[3].icon = "../images/icons/navigation__profile.svg";
+      this.links[3].path = "/profile";
+    }
+  },
   methods: {
         animateTransition() {
             const overlay = document.createElement('div');
@@ -96,7 +105,7 @@ export default {
 
 <style scoped>
 .navigation {
-    max-width: 740px;
+    max-width: 770px;
     position: fixed;
     z-index: 300;
     bottom: 20px;
@@ -113,6 +122,7 @@ export default {
     display: flex;
     gap: 24px;
     align-items: center;
+    justify-content: space-between;
 }
 
 .nav {
@@ -122,7 +132,7 @@ export default {
 .menu-link li img {
   display: none;
 }
-@media screen and (max-width: 760px){
+@media screen and (max-width: 794px){
   .navigation {
     width: 100%;
     bottom: 0;
