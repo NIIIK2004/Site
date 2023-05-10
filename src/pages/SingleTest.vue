@@ -16,9 +16,9 @@
             <div class="examination__blocks">
                 <ExaminationtextComponent/>
             </div>
-            <button class="examination__btn btn">
-                <router-link to="/testprocess" @click.prevent="animateTransition">Начать тест</router-link>
-            </button>
+            <router-link to="/testprocess" @click.prevent="animateTransition">
+                <button class="examination__btn btn">Начать тест</button>
+            </router-link>
         </section>
         <section class="knowledge indent">
             <h2 class="knowledge__title section-title">Как тест проверяет ваши знания</h2>
@@ -37,7 +37,13 @@ import FooterComponent from "@/components/FooterComponent.vue";
 import NavigationComponent from "@/components/NavigationComponent.vue";
 
 export default {
-    components: {NavigationComponent, ExaminationtextComponent, KnowledgeBlocks, ContactsFormComponent, FooterComponent},
+    components: {
+        NavigationComponent,
+        ExaminationtextComponent,
+        KnowledgeBlocks,
+        ContactsFormComponent,
+        FooterComponent
+    },
 
     NavigationComponent,
     name: "SingleTest",

@@ -81,14 +81,14 @@ const routes = [
         path: '/profile',
         component: ProfilePage,
     },
-  {
-    path: '/error',
-    component: ErrorPage,
-  },
-  {
-    path: '/:pathMatch(.*)*',
-    redirect: '/error',
-  },
+    {
+        path: '/error',
+        component: ErrorPage,
+    },
+    {
+        path: '/:pathMatch(.*)*',
+        redirect: '/error',
+    }
 ]
 
 const router = createRouter({
