@@ -1,7 +1,6 @@
 <template>
     <NavigationComponent/>
     <SectionStart/>
-    <router-link to="confirm">Тестик небольшой прикольный забавный классный милый задорный</router-link>
     <div class="container">
         <InterestingTests/>
         <PopularCourses/>

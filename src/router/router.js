@@ -94,6 +94,10 @@ const routes = [
         path: '/:pathMatch(.*)*',
         redirect: '/error',
     },
+    {
+        path: '/:pathMatch(.*)*',
+        redirect: '/error',
+    }
 ]
 
 const router = createRouter({

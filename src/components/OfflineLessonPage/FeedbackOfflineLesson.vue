@@ -68,7 +68,7 @@ export default {
     methods: {
         submitForm() {
             if (this.validateForm()) {
-                fetch('http://localhost:8080/submit-form', {
+                fetch('http://localhost:8082/submit-form', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
