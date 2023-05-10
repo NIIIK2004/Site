@@ -2,7 +2,10 @@
     <div class="custom-select" :class="{ 'custom-select--active': showDropdown }" ref="select" @click="toggleDropdown">
         <div class="selected-option">{{ selectedOption }}</div>
         <ul :class="{ show: showDropdown }">
-            <li v-for="option in options" :key="option" @click.stop="selectOption(option)">{{ option }}</li>
+            <li v-for="option in options" :key="option.value" @click.stop="selectOption(option.text)">{{
+                option.text
+                }}
+            </li>
         </ul>
     </div>
 </template>
@@ -11,7 +14,12 @@
 export default {
     data() {
         return {
-            options: ['Без разницы', 'Сурин А.Ю.', 'Машков Н.В.', 'Смольняков А.В.'],
+            options: [
+                {id: 1, text: 'Без разницы'},
+                {id: 2, text: 'Смольняков А.В.'},
+                {id: 3, text: 'Мартыненко В.А.'},
+                {id: 4, text: 'Никита В.А.'},
+            ],
             selectedOption: 'Без разницы',
             showDropdown: false,
             active: false

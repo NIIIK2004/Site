@@ -1,61 +1,141 @@
 <template>
     <section class="feedback">
         <h2 class="feedback__title section-title">Форма обратной связи:</h2>
-        <form class="feedback__form" action="">
+        <form class="feedback__form" @submit.prevent="submitForm" v-if="isFormVisible"
+              action="http://localhost:8080/submit-form" method="post">
             <ul class="feedback__list">
                 <li class="feedback__item">
                     <label class="feedback__label" for="input_name">Имя</label>
-                    <input class="feedback__input" id="input_name" type="text" placeholder="Введите имя" required>
+                    <input class="feedback__input" id="input_name" type="text" placeholder="Введите имя" required
+                           v-model="formData.name"/>
                 </li>
                 <li class="feedback__item">
                     <label class="feedback__label" for="input_surname">Фамилия</label>
-                    <input class="feedback__input" id="input_surname" type="text" placeholder="Введите фамилию" required>
+                    <input class="feedback__input" id="input_surname" type="text" placeholder="Введите фамилию" required
+                           v-model="formData.surname"/>
                 </li>
                 <li class="feedback__item">
                     <label class="feedback__label" for="input_email">Почта</label>
-                    <input class="feedback__input" id="input_email" type="email" placeholder="Введите почту" required>
+                    <input class="feedback__input" id="input_email" type="email" placeholder="Введите почту" required
+                           v-model="formData.email"/>
                 </li>
                 <li class="feedback__item">
                     <label class="feedback__label" for="input_phone">Номер телефона</label>
-                    <input class="feedback__input" id="input_phone" type="text" placeholder="Введите номер" required>
+                    <input class="feedback__input" id="input_phone" type="text" placeholder="Введите номер" required
+                           v-model="formData.phone"/>
                 </li>
                 <li class="feedback__item">
-                    <label class="feedback__label" for="input_teacher">Преподаватель</label>
-                    <custom-select
-                            v-model="selectedOptionIndex"
-                            :options="options.map((option, index) => ({ ...option, value: index }))"
-                    />
+                    <custom-select v-model="selectedOption" :options="options"></custom-select>
                 </li>
             </ul>
             <p class="feedback__accept">
                 Оставляя заявку, вы принимаете условия соглашения об обработке персональных данных
             </p>
-            <button class="feedback__btn btn">Отправить заявку</button>
+            <button class="feedback__btn btn" type="submit">Отправить заявку</button>
         </form>
+        <div class="feedback__success" :class="{ 'feedback__success--active': !isFormVisible }">
+            <p>Информация принята. Спасибо за обратную заявку, ожидайте ответа в ближайшее время!</p>
+        </div>
     </section>
 </template>
-
 <script>
 import CustomSelect from "@/components/CustomSelect/CustomSelect.vue";
 
 export default {
     components: {
-        CustomSelect
+        CustomSelect,
     },
     data() {
         return {
+            selectedOption: '',
             options: [
-
+                {text: 'С свободным учителем', value: 'С свободным учителем'},
+                {text: 'Смольняков А.В.', value: 'Смольняков А.В.'},
+                {text: 'Сурин А.Ю.', value: 'Сурин А.Ю.'},
+                {text: 'Машков Н.В.', value: 'Машков Н.В.'},
+                {text: 'Мартыненко В.А.', value: 'Мартыненко В.А.'},
             ],
-            selectedOptionIndex: 0,
-        };
+            formData: {
+                name: '',
+                surname: '',
+                email: '',
+                phone: ''
+            },
+            isFormVisible: true,
+            isErrorMessageActive: false
+        }
     },
+    methods: {
+        submitForm() {
+            if (this.validateForm()) {
+                fetch('http://localhost:8080/submit-form', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(this.formData)
+                })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        this.isFormVisible = false;
+                        localStorage.setItem('isFormVisible', false);
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+            }
+        },
+        validateForm() {
+            const name = document.getElementById('input_name').value;
+            const surname = document.getElementById('input_surname').value;
+            const email = document.getElementById('input_email').value;
+            const phone = document.getElementById('input_phone').value;
+
+            if (!name || !surname || !email || !phone) {
+                this.isErrorMessageActive = true;
+                return false;
+            }
+
+            return true;
+        }
+    },
+    mounted() {
+        const isFormVisible = localStorage.getItem('isFormVisible');
+        if (isFormVisible === 'false') {
+            this.isFormVisible = false;
+        }
+    }
 }
 </script>
 
 <style scoped>
 .feedback__title {
     margin-bottom: 40px;
+}
+
+.feedback__form {
+    max-height: 1000px;
+    transition: max-height 0.7s ease-out;
+}
+
+.feedback__form--hidden {
+    max-height: 0;
+    overflow: hidden;
+}
+
+.feedback__success {
+    background: rgba(180, 254, 26, 0.7);
+    padding: 30px;
+    border-radius: 10px;
+    font-size: 20px;
+    opacity: 0;
+    transition: opacity 0.7s ease-in;
+}
+
+.feedback__success--active {
+    opacity: 1;
 }
 
 .feedback__list {
@@ -93,10 +173,19 @@ export default {
     background: rgba(180, 254, 26, 0.1);
 }
 
-.feedback__accept {
+.feedback__accept,
+.feedback__error-message {
     font-size: 16px;
-    margin-bottom: 40px;
+}
+
+.feedback__accept {
     color: #C2C2C2;
+    margin-bottom: 40px;
+}
+
+.feedback__error-message {
+    color: #ff4242;
+    margin-bottom: 25px;
 }
 
 .feedback__btn {
@@ -107,6 +196,11 @@ export default {
 @media (max-width: 1200px) {
     .feedback__input,
     .feedback__label {
+        font-size: 18px;
+    }
+
+    .feedback__success {
+        padding: 20px;
         font-size: 18px;
     }
 }
@@ -148,6 +242,10 @@ export default {
     .feedback__accept {
         font-size: 14px;
         margin-bottom: 30px;
+    }
+
+    .feedback__success {
+        font-size: 16px;
     }
 }
 

@@ -6,13 +6,15 @@
             </a>
             <nav class="nav">
                 <ul v-for="link in links" :key="link.id" class="menu-link">
-                  <router-link :to="link.path" @click.prevent="animateTransition">
-                    <li><img :src="link.icon" alt=""></li>
-                    <li>{{link.name}}</li>
-                  </router-link>
+                    <router-link :to="link.path" @click.prevent="animateTransition">
+                        <li><img :src="link.icon" alt=""></li>
+                        <li>{{ link.name }}</li>
+                    </router-link>
                 </ul>
             </nav>
-            <button class="navigation__btn btn">Записаться на урок</button>
+            <router-link :to="offlinelesson" @click.prevent="animateTransition">
+                <button class="navigation__btn btn">Записаться на урок</button>
+            </router-link>
         </div>
     </div>
 </template>
@@ -48,10 +50,11 @@ export default {
                     path: "/auth"
                 }
             ],
-            logo: '../images/logo.png'
+            logo: '../images/logo.png',
+            offlinelesson: '/offlinelesson'
         }
     },
-  methods: {
+    methods: {
         animateTransition() {
             const overlay = document.createElement('div');
             overlay.style.position = 'fixed';
@@ -119,60 +122,69 @@ export default {
     display: flex;
     gap: 24px;
 }
+
 .menu-link li img {
-  display: none;
-}
-@media screen and (max-width: 760px){
-  .navigation {
-    width: 100%;
-    bottom: 0;
-    background-color: #B4FE1A;
-    border-radius: 18px 18px 0px 0px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-  .menu-link li img {
-  display: block;
+    display: none;
 }
 
-  .navigation--inner {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 8px;
-}
-  .nav {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 45px;
-  }
-  .menu-link {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
-  .menu-link li:nth-child(2) {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 8px;
-    line-height: 9px;
-    text-align: center;
-  }
-  .logo {
-    display: none;
-  }
-  .navigation__btn {
-    display: none;
-  }
-  a{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-  }
+@media screen and (max-width: 760px) {
+    .navigation {
+        width: 100%;
+        bottom: 0;
+        background-color: #B4FE1A;
+        border-radius: 18px 18px 0px 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .menu-link li img {
+        display: block;
+    }
+
+    .navigation--inner {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 8px;
+    }
+
+    .nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 45px;
+    }
+
+    .menu-link {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .menu-link li:nth-child(2) {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 8px;
+        line-height: 9px;
+        text-align: center;
+    }
+
+    .logo {
+        display: none;
+    }
+
+    .navigation__btn {
+        display: none;
+    }
+
+    a {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
 }
 </style>
