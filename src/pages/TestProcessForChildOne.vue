@@ -52,25 +52,25 @@ import {computed, ref} from 'vue'
 
 const questions = ref([
     {
-        question: 'Слово “Автомобиль”',
+        question: 'Слово “Привет”',
         answer: 0,
         options: [
-            'Car',
-            'Cat',
-            'Dog',
             'Hello',
+            'How are you',
+            'Dog',
+            'Cat',
         ],
         selected: null
     },
 
     {
-        question: 'Слово “Собака”',
-        answer: 2,
+        question: 'Слово “Как дела?”',
+        answer: 1,
         options: [
             'Book',
+            'How are you',
             'Cat',
-            'Dog',
-            'Hello',
+            'Hi',
         ],
         selected: null
     },
@@ -87,8 +87,8 @@ const questions = ref([
         selected: null
     },
     {
-        question: 'Слово “Книга”',
-        answer: 3,
+        question: 'Слово “Человек”',
+        answer: 0,
         options: [
             'People',
             'Black',
@@ -98,24 +98,13 @@ const questions = ref([
         selected: null
     },
     {
-        question: 'Слово “Мужчина”',
-        answer: 0,
+        question: 'Слово “Клавиатура”',
+        answer: 3,
         options: [
             'Man',
             'Mouse',
             'Car',
             'Keyboard',
-        ],
-        selected: null
-    },
-    {
-        question: 'Слово “Женщина”',
-        answer: 3,
-        options: [
-            'People',
-            'Black',
-            'Man',
-            'Woman',
         ],
         selected: null
     },
@@ -198,7 +187,6 @@ const animateTransition = () => {
 }
 
 </script>
-
 
 <style scoped>
 .progress-bar__wrapper {
@@ -348,7 +336,6 @@ p {
 a {
     margin-top: 20px;
 }
-
 
 @media (max-width: 1064px) {
     .options {

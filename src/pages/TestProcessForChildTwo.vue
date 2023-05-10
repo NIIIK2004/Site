@@ -12,21 +12,21 @@
                 <label v-for="(option, index) in getCurrentQuestion.options" :key="index"
                        :class="`option ${getCurrentQuestion.selected == index ? index == getCurrentQuestion.answer ? 'correct' : 'wrong' : ''} ${getCurrentQuestion.selected != null && index != getCurrentQuestion.selected ? 'disabled' : ''} `">
                     <input
-                            type="radio"
-                            :name="getCurrentQuestion.index"
-                            :value="index"
-                            v-model="getCurrentQuestion.selected"
-                            :disabled="getCurrentQuestion.selected"
-                            @change="SetAnswer"
+                        type="radio"
+                        :name="getCurrentQuestion.index"
+                        :value="index"
+                        v-model="getCurrentQuestion.selected"
+                        :disabled="getCurrentQuestion.selected"
+                        @change="SetAnswer"
                     >
                     <span>{{ option }}</span>
                 </label>
             </div>
             <button
-                    @click="NextQuestion"
-                    :disabled="!getCurrentQuestion.selected">
+                @click="NextQuestion"
+                :disabled="!getCurrentQuestion.selected">
                 {{
-                getCurrentQuestion.index == questions.length - 1 ? 'Завершить тест' : getCurrentQuestion.selected == null ? 'Выберите ответ' : 'Далее'
+                    getCurrentQuestion.index == questions.length - 1 ? 'Завершить тест' : getCurrentQuestion.selected == null ? 'Выберите ответ' : 'Далее'
                 }}
             </button>
         </div>
@@ -47,75 +47,65 @@
 </template>
 
 <script setup>
+
 import {computed, ref} from 'vue'
 
 
 const questions = ref([
     {
-        question: 'Слово “Автомобиль”',
+        question: 'Слово “Пока”',
         answer: 0,
         options: [
-            'Car',
-            'Cat',
+            'Byu',
+            'How are you',
             'Dog',
-            'Hello',
+            'Cat',
         ],
         selected: null
     },
 
     {
-        question: 'Слово “Собака”',
-        answer: 2,
+        question: 'Слово “Ноутбук”',
+        answer: 3,
         options: [
             'Book',
+            'How are you',
             'Cat',
-            'Dog',
-            'Hello',
+            'laptop',
         ],
         selected: null
     },
 
     {
-        question: 'Слово “Смартфон”',
+        question: 'Слово “Стол”',
         answer: 1,
         options: [
             'Laptop',
-            'Phone',
+            'Table',
             'Car',
             'School',
         ],
         selected: null
     },
     {
-        question: 'Слово “Книга”',
+        question: 'Слово “Компьютер”',
         answer: 3,
         options: [
             'People',
             'Black',
             'Man',
-            'Book',
+            'PC',
         ],
         selected: null
     },
     {
-        question: 'Слово “Мужчина”',
+        question: 'Слово “Мышь”',
         answer: 0,
         options: [
-            'Man',
             'Mouse',
+            'Byu',
             'Car',
             'Keyboard',
-        ],
-        selected: null
-    },
-    {
-        question: 'Слово “Женщина”',
-        answer: 3,
-        options: [
-            'People',
-            'Black',
-            'Man',
-            'Woman',
         ],
         selected: null
     },
@@ -199,8 +189,8 @@ const animateTransition = () => {
 
 </script>
 
-
 <style scoped>
+
 .progress-bar__wrapper {
     width: 100%;
     height: 15px;
@@ -358,15 +348,15 @@ a {
         margin-top: 40px;
     }
 
-    .option {
+    .option[data-v-33e60409] {
         justify-content: center;
     }
 
-    .quiz-info .question {
+    .quiz-info .question[data-v-33e60409] {
         font-size: 48px;
     }
 
-    button {
+    button[data-v-33e60409] {
         background: #d9fe8c;
         border-radius: 15px;
         padding: 15px 50px;
@@ -379,15 +369,15 @@ a {
         font-size: 20px;
     }
 
-    .quiz-info .question {
+    .quiz-info .question[data-v-33e60409][data-v-33e60409] {
         font-size: 32px;
     }
 
-    button {
+    button[data-v-33e60409] {
         margin-right: auto;
     }
 
-    .options {
+    .options[data-v-33e60409] {
         margin-bottom: 50px;
     }
 
@@ -402,21 +392,21 @@ a {
 }
 
 @media (max-width: 460px) {
-    .quiz-info .question {
+    .quiz-info .question[data-v-33e60409][data-v-33e60409][data-v-33e60409] {
         font-size: 27px;
     }
 
-    button {
+    button[data-v-33e60409][data-v-33e60409] {
         font-size: 19px;
     }
 }
 
 @media (max-width: 390px) {
-    .quiz-info .question {
+    .quiz-info .question[data-v-425b2b0c] {
         font-size: 35px;
     }
 
-    .options {
+    .options[data-v-425b2b0c] {
         margin-bottom: 40px;
     }
 }

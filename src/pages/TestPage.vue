@@ -9,7 +9,9 @@
                 <h1 class="test__title">Английский по фильмам</h1>
                 <p class="test__description">Совершенствуйте английский по фразам из популярных фильмов и сериалов</p>
                 <p class="test__cost">120 000 Рублей</p>
-                <button class="test__btn btn">Начать тест</button>
+                <router-link to="/testprocessfortest" @click.prevent="animateTransition">
+                    <button class="test__btn btn">Начать тест</button>
+                </router-link>
                 <div class="test__dop-info">
                     <span>Подойдет для собеседования</span>
                     <span>Сложность: легкий</span>
@@ -44,19 +46,54 @@
 // }
 
 
-
-
-
-
-
 import {defineComponent} from "vue";
 import NavigationComponent from "@/components/NavigationComponent.vue";
 
 export default defineComponent({
-    components: {NavigationComponent}
+    components: {NavigationComponent},
+
+    methods: {
+        animateTransition() {
+            const overlay = document.createElement('div');
+            overlay.style.position = 'fixed';
+            overlay.style.top = '0';
+            overlay.style.left = '0';
+            overlay.style.width = '100%';
+            overlay.style.height = '100%';
+            overlay.style.background = 'white';
+            overlay.style.zIndex = '9999';
+
+            const slide = document.createElement('div');
+            slide.style.position = 'fixed';
+            slide.style.bottom = '0';
+            slide.style.left = '0';
+            slide.style.width = '100%';
+            slide.style.height = '0';
+            slide.style.background = '#CAFD5E';
+            slide.style.zIndex = '10000';
+            slide.style.transition = 'all 0.5s ease-in-out';
+
+            document.body.appendChild(overlay);
+            document.body.appendChild(slide);
+
+            setTimeout(() => {
+                slide.style.height = '100vh';
+                setTimeout(() => {
+                    slide.style.transform = 'translateY(-50%)';
+                    setTimeout(() => {
+                        slide.style.transform = 'translateY(-100%)';
+                        overlay.style.opacity = '0';
+                        setTimeout(() => {
+                            document.body.removeChild(overlay);
+                            document.body.removeChild(slide);
+                        }, 500);
+                    }, 500);
+                }, 500);
+            }, 10);
+        }
+    }
 })
 </script>
-
 <style scoped>
 
 body {
@@ -160,93 +197,98 @@ body {
     .test__dop-info span {
         font-size: 15px;
     }
+}
 
-    @media (max-width: 926px) {
-        .test__general {
-            flex-direction: column;
-        }
-
-        .test__left {
-            width: 100%;
-            margin-right: 0;
-        }
-
-        .test__general {
-            margin-top: 0px;
-        }
-
-        .test__general {
-            align-items: unset;
-        }
-
-        .test__left-img[data-v-3a85db36] {
-            width: 100%;
-            height: 350px;
-            object-fit: cover;
-        }
-
-        .test__cost, .test__title {
-            font-size: 48px;
-        }
-
-        .test__cost,
-        .test__description {
-            margin-top: 25px;
-        }
-
-        .test__btn[data-v-3a85db36] {
-            margin-top: 30px;
-        }
-
-        .test__description[data-v-3a85db36][data-v-3a85db36] {
-            margin-top: 15px;
-            font-size: 23px;
-        }
+@media (max-width: 926px) {
+    .test__general {
+        flex-direction: column;
     }
-    @media (max-width: 590px) {
-        .test__cost[data-v-3a85db36], .test__title[data-v-3a85db36] {
-            font-size: 32px;
-        }
 
-        .test__cost[data-v-3a85db36], .test__description[data-v-3a85db36] {
-            margin-top: 20px;
-        }
-
-        .test__btn[data-v-3a85db36][data-v-3a85db36] {
-            margin-top: 20px;
-            width: 100%;
-        }
-
-        .test__dop-info[data-v-3a85db36] {
-            margin-top: 15px;
-            display: flex;
-            gap: 20px;
-            flex-direction: row;
-            flex-wrap: wrap;
-        }
-
-        .test__dop-info span[data-v-3a85db36] {
-            font-size: 15px;
-            border-left: 1px solid #2D2924;
-            padding-left: 6px;
-            height: 18px;
-        }
+    .test__left {
+        width: 100%;
+        margin-right: 0;
     }
-    @media (max-width: 400px) {
-        .test__description[data-v-3a85db36][data-v-3a85db36][data-v-3a85db36] {
-            margin-top: 13px;
-            font-size: 18px;
-        }
-        .test__cost[data-v-3a85db36][data-v-3a85db36], .test__title[data-v-3a85db36][data-v-3a85db36] {
-            font-size: 27px;
-        }
-        .test__cost[data-v-3a85db36][data-v-3a85db36], .test__description[data-v-3a85db36][data-v-3a85db36] {
-            margin-top: 3px;
-        }
-        .test__btn[data-v-3a85db36][data-v-3a85db36][data-v-3a85db36] {
-            margin-top: 10px;
-            width: 100%;
-        }
+
+    .test__general {
+        margin-top: 0px;
+    }
+
+    .test__general {
+        align-items: unset;
+    }
+
+    .test__left-img[data-v-3a85db36] {
+        width: 100%;
+        height: 350px;
+        object-fit: cover;
+    }
+
+    .test__cost, .test__title {
+        font-size: 48px;
+    }
+
+    .test__cost,
+    .test__description {
+        margin-top: 25px;
+    }
+
+    .test__btn[data-v-3a85db36] {
+        margin-top: 30px;
+    }
+
+    .test__description[data-v-3a85db36][data-v-3a85db36] {
+        margin-top: 15px;
+        font-size: 23px;
+    }
+}
+
+@media (max-width: 590px) {
+    .test__cost[data-v-3a85db36], .test__title[data-v-3a85db36] {
+        font-size: 32px;
+    }
+
+    .test__cost[data-v-3a85db36], .test__description[data-v-3a85db36] {
+        margin-top: 20px;
+    }
+
+    .test__btn[data-v-3a85db36][data-v-3a85db36] {
+        margin-top: 20px;
+        width: 100%;
+    }
+
+    .test__dop-info[data-v-3a85db36] {
+        margin-top: 15px;
+        display: flex;
+        gap: 20px;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .test__dop-info span[data-v-3a85db36] {
+        font-size: 15px;
+        border-left: 1px solid #2D2924;
+        padding-left: 6px;
+        height: 18px;
+    }
+}
+
+@media (max-width: 400px) {
+    .test__description[data-v-3a85db36][data-v-3a85db36][data-v-3a85db36] {
+        margin-top: 13px;
+        font-size: 18px;
+    }
+
+    .test__cost[data-v-3a85db36][data-v-3a85db36], .test__title[data-v-3a85db36][data-v-3a85db36] {
+        font-size: 27px;
+    }
+
+    .test__cost[data-v-3a85db36][data-v-3a85db36], .test__description[data-v-3a85db36][data-v-3a85db36] {
+        margin-top: 3px;
+    }
+
+    .test__btn[data-v-3a85db36][data-v-3a85db36][data-v-3a85db36] {
+        margin-top: 10px;
+        width: 100%;
     }
 }
 </style>

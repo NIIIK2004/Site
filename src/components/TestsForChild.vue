@@ -1,7 +1,9 @@
 <template>
     <div class="cards__blocks">
         <div class="cards__wrapper" v-for="card in cards" :key="card.id">
+            <router-link to="/test" @click.prevent="animateTransition">
             <img :src="card.img" class="cards__wrapper-background">
+            </router-link>
             <h3 class="cards__wrapper-title">{{ card.name }}</h3>
             <p class="cards__wrapper-description">{{ card.description }}</p>
         </div>

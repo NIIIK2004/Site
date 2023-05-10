@@ -15,6 +15,7 @@ import AuthPage from "@/pages/AuthPage.vue";
 import ProfilePage from "@/pages/ProfilePage.vue";
 import ErrorPage from "@/pages/ErrorPage.vue";
 import TestProcess from "@/pages/TestProcess.vue";
+import TestProcessForChildOne from "@/pages/TestProcessForChildOne.vue";
 
 const routes = [
     {
@@ -81,14 +82,18 @@ const routes = [
         path: '/profile',
         component: ProfilePage,
     },
-  {
-    path: '/error',
-    component: ErrorPage,
-  },
-  {
-    path: '/:pathMatch(.*)*',
-    redirect: '/error',
-  },
+    {
+        path: '/error',
+        component: ErrorPage,
+    },
+    {
+        path: '/testprocessfortest',
+        component: TestProcessForChildOne,
+    },
+    {
+        path: '/:pathMatch(.*)*',
+        redirect: '/error',
+    },
 ]
 
 const router = createRouter({

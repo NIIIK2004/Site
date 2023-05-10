@@ -4,7 +4,7 @@
         (уровни A0,A1,A2)</p>
     <div class="cards__blocks">
         <div class="cards__wrapper" v-for="card in cards" :key="card.id">
-            <img :src="card.img" class="cards__wrapper-background">
+            <router-link to="/test" @click.prevent="animateTransition"><img :src="card.img" class="cards__wrapper-background"></router-link>
             <h3 class="cards__wrapper-title">{{ card.name }}</h3>
             <p class="cards__wrapper-description">{{ card.description }}</p>
         </div>
@@ -55,6 +55,46 @@ export default {
                     description: "Совершенствуйте английский по фразам из популярных фильмов и сериалов",
                 },
             ]
+        }
+    },
+    methods: {
+        animateTransition() {
+            const overlay = document.createElement('div');
+            overlay.style.position = 'fixed';
+            overlay.style.top = '0';
+            overlay.style.left = '0';
+            overlay.style.width = '100%';
+            overlay.style.height = '100%';
+            overlay.style.background = 'white';
+            overlay.style.zIndex = '9999';
+
+            const slide = document.createElement('div');
+            slide.style.position = 'fixed';
+            slide.style.bottom = '0';
+            slide.style.left = '0';
+            slide.style.width = '100%';
+            slide.style.height = '0';
+            slide.style.background = '#CAFD5E';
+            slide.style.zIndex = '10000';
+            slide.style.transition = 'all 0.5s ease-in-out';
+
+            document.body.appendChild(overlay);
+            document.body.appendChild(slide);
+
+            setTimeout(() => {
+                slide.style.height = '100vh';
+                setTimeout(() => {
+                    slide.style.transform = 'translateY(-50%)';
+                    setTimeout(() => {
+                        slide.style.transform = 'translateY(-100%)';
+                        overlay.style.opacity = '0';
+                        setTimeout(() => {
+                            document.body.removeChild(overlay);
+                            document.body.removeChild(slide);
+                        }, 500);
+                    }, 500);
+                }, 500);
+            }, 10);
         }
     }
 }
