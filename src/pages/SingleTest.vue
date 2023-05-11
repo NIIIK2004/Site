@@ -1,5 +1,8 @@
 <template>
     <NavigationComponent/>
+    <span v-if="!user" class="error-alert" v-show="showErrorAlert">Для того чтобы иметь доступ проходить тесты на Astyx, вам нужно быть авторизованным пользователем
+      <router-link v-if="!user" to="/auth" @click.prevent="animateTransition">Войти</router-link></span>
+
     <div class="container">
 
         <section class="singletest indent">
@@ -46,6 +49,12 @@ export default {
         ContactsFormComponent,
         FooterComponent
     },
+   data() {
+    return {
+      user: null,
+      showErrorAlert: false,
+    };
+  },
 
     NavigationComponent,
     name: "SingleTest",
@@ -88,16 +97,18 @@ export default {
                 }, 500);
             }, 10);
         },
-        // skipIntroTest() {
-        //     localStorage.setItem('introTestSkipped', 'true');
-        // },
-    },
-    // mounted() {
-    //     if (localStorage.getItem('introTestPassed') === 'true' || localStorage.getItem('introTestSkipped') === 'true') {
-    //         document.querySelector('.start__btn').style.display = 'none';
-    //     }
-    // },
 
+    },
+  mounted() {
+    this.user = localStorage.getItem("user");
+
+    if (!this.user) {
+      this.showErrorAlert = true;
+      setInterval(() => {
+        this.showErrorAlert = !this.showErrorAlert;
+      }, 5000);
+    }
+  }
 }
 </script>
 
@@ -116,6 +127,21 @@ body {
     background: #EFFFCE !important;
     border-radius: 25px;
     padding: 60px 45px;
+}
+.error-alert {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0 auto;
+    width: 100%;
+  align-items: center;
+  text-align: center;
+  gap: 30px;
+   padding: 10px;
+    background: rgba(255, 135, 135, 0.33);
 }
 
 .singletest__title {
