@@ -7,7 +7,9 @@
             <p class="card-popular__description">{{ course.description }}</p>
             <div class="card-popular__bottom">
                 <span class="card-popular__price">{{ course.price }}</span>
-                <button class="card-popular__btn btn">Записаться</button>
+                <router-link :to="course.isPaid ? '/payment' : '/offlinelesson'">
+                  <button class="card-popular__btn btn">Записаться</button>
+                </router-link>
                 <span class="card-popular__quantity">{{ course.quantity }}</span>
             </div>
         </li>

@@ -5,7 +5,7 @@
             <input placeholder="Email" ref="emailInput">
             <span v-if="!emailValid" class="error-alert">Введите корректную почту</span>
             <span v-if="!uniqueEmail" class="error-alert">Пользователь с такой почтой уже существует <router-link
-                    to="/">Войти</router-link></span>
+                    to="auth" @click.prevent="animateTransition">Войти</router-link></span>
             <input type="text" placeholder="Логин">
             <div class="password-field">
                 <input type="password" placeholder="Пароль" id="password-field">

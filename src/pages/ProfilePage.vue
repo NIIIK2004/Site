@@ -3,10 +3,10 @@
         <div class="profile__top">
             <button class="profile__btn btn logout" @click="logout">Выйти</button>
             <div class="profile__content">
-                <img class="profile__img" src="" alt="" width="300" height="300">
+                <img class="profile__img" v-if="userProfile" :src="'http://192.168.1.111:8080/uploads/' + userProfile.file" alt="" width="300" height="300">
                 <div class="profile__top-info">
                     <span class="profile__status">Активирован</span>
-                    <h1 class="profile__name">Артем Сурин</h1>
+                    <h1 class="profile__name" v-if="userProfile">{{userProfile.name}} {{userProfile.surname}}</h1>
                     <span class="profile__mail"></span>
                 </div>
             </div>
@@ -15,14 +15,17 @@
             <h2 class="profile__info-title">Информация</h2>
             <div class="profile__lists">
                 <ul class="profile__left">
+                  <li class="profile__item">Имя пользователя:</li>
                     <li class="profile__item">Имя и Фамилия:</li>
                     <li class="profile__item">Номер телефона:</li>
                     <li class="profile__item">Email:</li>
                 </ul>
                 <ul class="profile__right">
-                    <li class="profile__item">Артем Мешков</li>
-                    <li class="profile__item">8-(918)-323-23-23</li>
-                    <li class="profile__item">{{}}</li>
+                  <li class="profile__item" v-if="userProfile">{{userProfile.username}}</li>
+                    <li class="profile__item" v-if="userProfile">{{userProfile.name}} {{userProfile.surname}}</li>
+                    <li class="profile__item" v-if="userProfile">{{userProfile.number}}</li>
+                    <li class="profile__item" v-if="userProfile">{{ userProfile.email }}</li>
+
                 </ul>
             </div>
         </div>
@@ -34,7 +37,7 @@
 </template>
 
 
-<!--<script>
+<script>
 import axios from 'axios';
 import router from '@/router/router'
 
@@ -43,7 +46,7 @@ export default {
     data() {
         return {
             user: null,
-            userKek: {},
+            userProfile: null,
 
         }
     },
@@ -60,6 +63,7 @@ export default {
             .then(response => {
                 const allUsers = response.data.data;
                 const userProfile = allUsers.find(u => u.username === user.username);
+                this.userProfile = userProfile;
                 console.log(userProfile)
             })
             .catch(error => {
@@ -83,7 +87,7 @@ export default {
         }
     }
 }
-</script>-->
+</script>
 
 
 

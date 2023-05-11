@@ -51,7 +51,7 @@ export default {
                     console.log(this.username)
                     setTimeout(() => {
                         router.push('/');
-                    }, 7000); // через 5 секунд произойдет редирект на главную страницу
+                    }, 3000); // через 5 секунд произойдет редирект на главную страницу
                 }
             }).catch(error => {
                 console.log(error);

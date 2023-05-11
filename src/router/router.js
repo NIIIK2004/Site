@@ -16,6 +16,7 @@ import ProfilePage from "@/pages/ProfilePage.vue";
 import ErrorPage from "@/pages/ErrorPage.vue";
 import TestProcess from "@/pages/TestProcess.vue";
 import TestProcessForChildOne from "@/pages/TestProcessForChildOne.vue";
+import PaymentPage from "@/pages/PaymentPage.vue";
 
 const routes = [
     {
@@ -65,6 +66,10 @@ const routes = [
     {
         path: '/offlinelesson',
         component: OfflineLessonPage,
+    },
+    {
+        path: '/payment',
+        component: PaymentPage,
     },
     {
         path: '/testprocess',

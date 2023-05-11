@@ -101,12 +101,12 @@ export default {
             return true;
         }
     },
-    mounted() {
-        const isFormVisible = localStorage.getItem('isFormVisible');
-        if (isFormVisible === 'false') {
-            this.isFormVisible = false;
-        }
+mounted() {
+    const isFormVisible = localStorage.getItem('isFormVisible');
+    if (isFormVisible === 'true') {
+        this.isFormVisible = false;
     }
+},
 }
 </script>
 

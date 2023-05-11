@@ -1,9 +1,11 @@
 <template>
     <div class="navigation">
         <div class="navigation--inner">
-            <a class="logo">
-                <img :src="logo" alt="Logo" width="32" height="32">
-            </a>
+          <a href="" class="logo">
+            <router-link to="/" @click.prevent="animateTransition">
+              <img :src="logo" alt="Logo" width="32" height="32">
+            </router-link>
+          </a>
             <nav class="nav">
                 <ul v-for="link in links" :key="link.id" class="menu-link">
                     <router-link :to="link.path" @click.prevent="animateTransition">
