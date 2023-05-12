@@ -67,6 +67,7 @@ export default {
 
             this.$emit('save', updatedProfile);
             this.$emit('close');
+            this.$emit('update-profile');
         },
         fillProfileData() {
             if (this.userProfileData) {

@@ -1,5 +1,8 @@
 <template>
     <div class="profile container">
+        <router-link to="#" @click.prevent="animateTransition">
+            <button class="profile__back">Вернуться назад</button>
+        </router-link>
         <div class="profile__top">
             <div class="profile__top-buttons">
                 <button class="profile__btn btn logout" @click="openEditModal">Редактирование</button>
@@ -13,7 +16,7 @@
                 <div class="profile__top-info">
                     <span class="profile__status">Активирован</span>
                     <h1 class="profile__name" v-if="userProfile">{{
-                            userProfile.name && userProfile.surname ? userProfile.name + ' ' + userProfile.surname : 'Имя и фамилия не заполнены'
+                        userProfile.name && userProfile.surname ? userProfile.name + ' ' + userProfile.surname : 'Имя и фамилия не заполнены'
                         }}</h1>
                     <span class="profile__mail" v-if="userProfile">{{
                         userProfile.email ? userProfile.email : 'Пусто'
@@ -33,7 +36,7 @@
                 </ul>
                 <ul class="profile__right">
                     <li class="profile__item" v-if="userProfile">{{
-                            userProfile.username ? userProfile.username : 'Пусто'
+                        userProfile.username ? userProfile.username : 'Пусто'
                         }}
                     </li>
                     <li class="profile__item" v-if="userProfile">{{
@@ -61,7 +64,7 @@
         </div>
     </div>
     <ModalEdit ref="editModal" :showModal="showModal" :userProfileData="userProfile" @save="handleSaveProfile"
-               @close="showModal = false"/>
+               @update-profile="fetchUserProfile" @close="showModal = false"/>
 </template>
 
 <script>
@@ -111,6 +114,21 @@ export default {
                     console.log(error);
                 });
         },
+        fetchUserProfile() {
+            const user = JSON.parse(localStorage.getItem('user'));
+            if (!user) {
+                router.push('/auth');
+            }
+
+            axios.get('http://localhost:8080/api/user/all')
+                .then(response => {
+                    const allUsers = response.data.data;
+                    this.userProfile = allUsers.find(u => u.username === user.username);
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        },
         openEditModal() {
             this.showModal = true;
         },
@@ -119,11 +137,51 @@ export default {
                 .post(`http://localhost:8080/api/user/add/info/${this.userProfile.id}`, updatedProfile)
                 .then((response) => {
                     console.log(response.data);
+                    this.fetchUserProfile();
                 })
                 .catch((error) => {
                     console.error(error);
                 });
             this.showModal = false;
+        },
+        animateTransition() {
+            const overlay = document.createElement('div');
+            overlay.style.position = 'fixed';
+            overlay.style.top = '0';
+            overlay.style.left = '0';
+            overlay.style.width = '100%';
+            overlay.style.height = '100%';
+            overlay.style.background = 'white';
+            overlay.style.zIndex = '9999';
+
+            const slide = document.createElement('div');
+            slide.style.position = 'fixed';
+            slide.style.bottom = '0';
+            slide.style.left = '0';
+            slide.style.width = '100%';
+            slide.style.height = '0';
+            slide.style.background = '#CAFD5E';
+            slide.style.zIndex = '10000';
+            slide.style.transition = 'all 0.5s ease-in-out';
+
+            document.body.appendChild(overlay);
+            document.body.appendChild(slide);
+
+            setTimeout(() => {
+                slide.style.height = '100vh';
+                setTimeout(() => {
+                    slide.style.transform = 'translateY(-50%)';
+                    setTimeout(() => {
+                        slide.style.transform = 'translateY(-100%)';
+                        overlay.style.opacity = '0';
+                        setTimeout(() => {
+                            document.body.removeChild(overlay);
+                            document.body.removeChild(slide);
+                        }, 500);
+                    }, 500);
+                }, 500);
+            }, 10);
+            this.$router.go(-1);
         }
     },
 }
@@ -134,6 +192,15 @@ export default {
     margin-top: 55px;
     color: #242424;
     font-size: 20px;
+}
+
+.profile__back {
+    margin-bottom: 20px;
+    transition: color .3s;
+}
+
+.profile__back:hover {
+    color: #4A8400;
 }
 
 .profile__top {
