@@ -6,12 +6,18 @@
                 <button class="profile__btn btn logout" @click="logout">Выйти</button>
             </div>
             <div class="profile__content">
+                <!--                <img class="profile__img" v-if="userProfile"
+                                     :src="'http://192.168.1.111:8080/uploads/' + userProfile.file" alt="" width="300" height="300">-->
                 <img class="profile__img" v-if="userProfile"
-                     :src="'http://192.168.1.111:8080/uploads/' + userProfile.file" alt="" width="300" height="300">
+                     src="/images/news/1.png" alt="" width="300" height="300">
                 <div class="profile__top-info">
                     <span class="profile__status">Активирован</span>
-                    <h1 class="profile__name" v-if="userProfile">{{ userProfile.name && userProfile.surname ? userProfile.name + ' ' + userProfile.surname : 'Имя и фамилия не заполнено' }}</h1>
-                    <span class="profile__mail" v-if="userProfile">{{ userProfile.email ? userProfile.email : 'Пусто' }}</span>
+                    <h1 class="profile__name" v-if="userProfile">{{
+                            userProfile.name && userProfile.surname ? userProfile.name + ' ' + userProfile.surname : 'Имя и фамилия не заполнены'
+                        }}</h1>
+                    <span class="profile__mail" v-if="userProfile">{{
+                        userProfile.email ? userProfile.email : 'Пусто'
+                        }}</span>
                 </div>
             </div>
         </div>
@@ -23,12 +29,29 @@
                     <li class="profile__item">Имя и Фамилия:</li>
                     <li class="profile__item">Номер телефона:</li>
                     <li class="profile__item">Email:</li>
+                    <li class="profile__item">Номер телефона:</li>
                 </ul>
                 <ul class="profile__right">
-                    <li class="profile__item" v-if="userProfile">{{ userProfile.username ? userProfile.username : 'Пусто' }}</li>
-                    <li class="profile__item" v-if="userProfile">{{ userProfile.name && userProfile.surname ? userProfile.name + ' ' + userProfile.surname : 'Пусто' }}</li>
-                    <li class="profile__item" v-if="userProfile">{{ userProfile.number ? userProfile.number : 'Пусто' }}</li>
-                    <li class="profile__item" v-if="userProfile">{{ userProfile.email ? userProfile.email : 'Пусто' }}</li>
+                    <li class="profile__item" v-if="userProfile">{{
+                            userProfile.username ? userProfile.username : 'Пусто'
+                        }}
+                    </li>
+                    <li class="profile__item" v-if="userProfile">{{
+                        userProfile.name && userProfile.surname ? userProfile.name + ' ' + userProfile.surname : 'Пусто'
+                        }}
+                    </li>
+                    <li class="profile__item" v-if="userProfile">{{
+                        userProfile.number ? userProfile.number : 'Пусто'
+                        }}
+                    </li>
+                    <li class="profile__item" v-if="userProfile">{{
+                        userProfile.email ? userProfile.email : 'Пусто'
+                        }}
+                    </li>
+                    <li class="profile__item" v-if="userProfile">{{
+                        userProfile.number ? userProfile.number : 'Пусто'
+                        }}
+                    </li>
                 </ul>
             </div>
         </div>
@@ -37,9 +60,9 @@
             <span class="profile__level profile__level--middle">Средний</span>
         </div>
     </div>
-    <ModalEdit :showModal="showModal" :profileData="userProfile" @close="showModal = false" />
+    <ModalEdit ref="editModal" :showModal="showModal" :userProfileData="userProfile" @save="handleSaveProfile"
+               @close="showModal = false"/>
 </template>
-
 
 <script>
 import axios from 'axios';
@@ -60,10 +83,9 @@ export default {
         }
     },
     mounted() {
-        const user = JSON.parse(localStorage.getItem("user"));
-
+        const user = JSON.parse(localStorage.getItem('user'));
         if (!user) {
-            router.push("/auth");
+            router.push('/auth');
         }
 
         axios.get('http://localhost:8080/api/user/all')
@@ -91,11 +113,19 @@ export default {
         },
         openEditModal() {
             this.showModal = true;
-            this.$nextTick(() => {
-                this.$refs.editModalProfile.fillProfileData(this.userProfile);
-            });
+        },
+        handleSaveProfile(updatedProfile) {
+            axios
+                .post(`http://localhost:8080/api/user/add/info/${this.userProfile.id}`, updatedProfile)
+                .then((response) => {
+                    console.log(response.data);
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
+            this.showModal = false;
         }
-    }
+    },
 }
 </script>
 
