@@ -6,7 +6,7 @@ export async function sendEmail(name, surname, email, phone, teacher) {
         service: 'gmail',
         auth: {
             user: 'test@gmail.com',
-            pass: 'asd58rcd'
+            pass: 'test'
         }
     });
 
